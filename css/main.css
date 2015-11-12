@@ -716,14 +716,22 @@ body {
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
-  background-image: url("../images/logo");
-  max-width: 91px;
-  max-height: 32px;
 }
 .site-subtitle {
   margin-top: 10px;
   font-size: 13px;
   color: #ddd;
+}
+.site-meta .site-title {
+  background-image: url("../images/logo.png");
+  width: 91px;
+  height: 32px;
+  top: 8px !important;
+}
+.site-meta .site-subtitle {
+  top: -37px !important;
+  right: -60px;
+  font-size: 12px;
 }
 .use-motion .brand {
   opacity: 0;
