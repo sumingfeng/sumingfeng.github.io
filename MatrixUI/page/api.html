@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div id="content">
+
+		<p class="bold">说明:</p>
+		<hr>
+		<p class="f-16 mb-15">
+			<strong>1.页面所有公共模块的样式都写在
+				<em style="color:red">base.css</em>里，重构工程师只负责页面级的CSS编写。公用模块必须按照规范文档中的公共模块结构(HTML)编写。页面引入方式例如：</strong>
+		</p>
+		<pre>&lt;head&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
+	&lt;title&gt;Document&lt;/title&gt;
+	&lt;link rel=&quot;stylesheet&quot;  href=&quot;css/base.css&quot;&gt;
+	&lt;link rel=&quot;stylesheet&quot;  href=&quot;css/index.css&quot;&gt;
+ &lt;/head&gt;
+		</pre>
+		<p class="bold f-16 mt-15">2.为了页面更好的扩展性，每个页面模块须定义额外的Class，这样既可以防止样式冲突，也便于代码复用和阅读。</p>
+
+		<p class="bold mt-20">各组件API:</p>
+		<hr>
+		<table class="datatable tb1" width="100%">
+			<caption class="l-30 f-18" style="color:blue;text-align:left">表格组件：su_tableStyle.js</caption>
+			<thead>
+				<tr>
+					<th width="10%">属性</th>
+					<th style="text-align:left;padding-left:10px">功能</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>odd</td>
+					<td style="text-align:left;padding-left:10px">
+						定义奇数行的Class,如 $(".datatable").su_tableStyle({odd: "tr-odd"})
+					</td>
+				</tr>
+				<tr>
+					<td>even</td>
+					<td style="text-align:left;padding-left:10px">定义偶数行的Class</td>
+				</tr>
+				<tr>
+					<td>selected</td>
+					<td style="text-align:left;padding-left:10px">定义选中行的Class</td>
+				</tr>
+				<tr>
+					<td>checkAll</td>
+					<td style="text-align:left;padding-left:10px">定义全选复选框的ID</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="datatable tb1" width="100%">
+			<caption class="l-30 f-18" style="color:blue;text-align:left">标签页组件：su_tabslide.js</caption>
+			<thead>
+				<tr>
+					<th width="10%">属性</th>
+					<th style="text-align:left;padding-left:10px">功能</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>trig</td>
+					<td style="text-align:left;padding-left:10px;line-height:24px">
+						<p>触发事件的标签，如$("#tab").su_tabslide({trig:".lis li",panel:".panel",current:"current"})</p>
+						
+						<p>触发ID为tab下的，class为lis下的li元素，每个li元素对应的内容层class为panel,li选中状态class为current</p>
+					</td>
+				</tr>
+				<tr>
+					<td>panel</td>
+					<td style="text-align:left;padding-left:10px">定义每个tag对应的内容层的Class</td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td style="text-align:left;padding-left:10px">定义每个内容层切换的标题Class</td>
+				</tr>
+				<tr>
+					<td>current</td>
+					<td style="text-align:left;padding-left:10px">定义标签当前状态</td>
+				</tr>
+				<tr>
+					<td>next</td>
+					<td style="text-align:left;padding-left:10px">定义前进按钮的Class</td>
+				</tr>
+				<tr>
+					<td>prev</td>
+					<td style="text-align:left;padding-left:10px">定义后退按钮的Class</td>
+				</tr>
+				<tr>
+					<td>autoPlay</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，说明是否自动播放，true为自动，false为停止</td>
+				</tr>
+				<tr>
+					<td>event</td>
+					<td style="text-align:left;padding-left:10px">定义事件类型，如click、mouseover...</td>
+				</tr>
+				<tr>
+					<td>initTab</td>
+					<td style="text-align:left;padding-left:10px">数字类型。定义初始化默认选中哪个标签，0代表第一个</td>
+				</tr>
+				<tr>
+					<td>delay</td>
+					<td style="text-align:left;padding-left:10px">数字类型，定义自动播放间隔事件</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="datatable tb1" width="100%">
+			<caption class="l-30 f-18" style="color:blue;text-align:left">弹窗组件：su_dialog.js</caption>
+			<thead>
+				<tr>
+					<th width="10%">属性</th>
+					<th style="text-align:left;padding-left:10px">功能</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>mold</td>
+					<td style="text-align:left;padding-left:10px">
+						类型标示符,默认为"tip"，有tip、ajax、iframe、content四种展现形式
+					</td>
+				</tr>
+				<tr>
+					<td>width</td>
+					<td style="text-align:left;padding-left:10px">数字型，表示弹窗的宽度</td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td style="text-align:left;padding-left:10px">功能弹窗的标题</td>
+				</tr>
+				<tr>
+					<td>url</td>
+					<td style="text-align:left;padding-left:10px">页面请求的地址，如果用在显示隐藏层，则表示隐藏层的ID，如果是提示层则用作标示符"tip"</td>
+				</tr>
+				<tr>
+					<td>method</td>
+					<td style="text-align:left;padding-left:10px">ajax请求的方法get/post</td>
+				</tr>
+				
+				<tr>
+					<td>asnyc</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，表示同步或者异步，默认为false表示同步</td>
+				</tr>
+				<tr>
+					<td>tpl</td>
+					<td style="text-align:left;padding-left:10px">弹窗的内容</td>
+				</tr>
+				<tr>
+					<td>buttons</td>
+					<td style="text-align:left;padding-left:10px">弹窗的按钮，数组形式</td>
+				</tr>
+				<tr>
+					<td>events</td>
+					<td style="text-align:left;padding-left:10px">每个按钮对应的事件函数，数组形式</td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td style="text-align:left;padding-left:10px">回调函数</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="datatable tb1" width="100%">
+			<caption class="l-30 f-18" style="color:blue;text-align:left">分页组件：su_pagination.js</caption>
+			<thead>
+				<tr>
+					<th width="10%">属性</th>
+					<th style="text-align:left;padding-left:10px">功能</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>maxentries</td>
+					<td style="text-align:left;padding-left:10px">
+						总条目数，必选参数
+					</td>
+				</tr>
+				<tr>
+					<td>items_per_page</td>
+					<td style="text-align:left;padding-left:10px">每页显示的条目数，默认为10</td>
+				</tr>
+				<tr>
+					<td>num_display_entries</td>
+					<td style="text-align:left;padding-left:10px">连续分页主体部分显示的分页条目数，默认为10</td>
+				</tr>
+				<tr>
+					<td>current_page</td>
+					<td style="text-align:left;padding-left:10px">当前选中的页面，默认为0，表示第一页</td>
+				</tr>
+				<tr>
+					<td>link_to</td>
+					<td style="text-align:left;padding-left:10px">分页的链接，默认是"#"</td>
+				</tr>
+				<tr>
+					<td>prev_text</td>
+					<td style="text-align:left;padding-left:10px">“前一页”分页按钮上显示的文字</td>
+				</tr>
+				<tr>
+					<td>next_text</td>
+					<td style="text-align:left;padding-left:10px">“下一页”分页按钮上显示的文字</td>
+				</tr>
+				<tr>
+					<td>ellipse_text</td>
+					<td style="text-align:left;padding-left:10px">省略的页数用什么文字表示</td>
+				</tr>
+				<tr>
+					<td>prev_show_always</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，是否显示“前一页”按钮</td>
+				</tr>
+				<tr>
+					<td>callback</td>
+					<td style="text-align:left;padding-left:10px">回调函数</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="datatable tb1" width="100%">
+			<caption class="l-30 f-18" style="color:blue;text-align:left">表单组件：su_validation.js</caption>
+			<thead>
+				<tr>
+					<th width="10%">属性</th>
+					<th style="text-align:left;padding-left:10px">功能</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>required</td>
+					<td style="text-align:left;padding-left:10px">
+						布尔类型，如果为true,则为必填项
+					</td>
+				</tr>
+				<tr>
+					<td>rangelength</td>
+					<td style="text-align:left;padding-left:10px">字符长度限制区间，如[6,20]则表示6到20个字符</td>
+				</tr>
+				<tr>
+					<td>maxlength</td>
+					<td style="text-align:left;padding-left:10px">数字型，最大长度</td>
+				</tr>
+				<tr>
+					<td>minlength</td>
+					<td style="text-align:left;padding-left:10px">数字型，最小长度</td>
+				</tr>
+				<tr>
+					<td>email</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，如果为true，则表示验证开启</td>
+				</tr>
+				<tr>
+					<td>blank_card</td>
+					<td style="text-align:left;padding-left:10px;line-height:24px"><p></p>布尔类型，银行卡验证。如果为true，则表示验证开启。该组件本身不带该功能，需扩展函数（见表单公共模块页JS）</td>
+				</tr>
+				<tr>
+					<td>phone</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，移动手机验证。如果为true，则表示验证开启。该组件本身不带该功能，需扩展函数（见表单公共模块页JS）</td>
+				</tr>
+				<tr>
+					<td>dateRule</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，日期格式验证（yy-mm-dd)。如果为true，则表示验证开启。该组件本身不带该功能，需扩展函数（见表单公共模块页JS）</td>
+				</tr>
+				<tr>
+					<td>url</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，网址验证。如果为true，则表示验证开启。</td>
+				</tr>
+				<tr>
+					<td>form</td>
+					<td style="text-align:left;padding-left:10px">布尔类型，表示整个表单提交过程客户端验证是否通过</td>
+				</tr>
+				<tr>
+					<td>equalTo</td>
+					<td style="text-align:left;padding-left:10px">表示两次输入是否一致；如密码确认equalTo: "#level_pwd" </td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="datatable tb1" width="100%">
+			<caption class="l-30 f-18" style="color:blue;text-align:left">tip组件：su_allTip.js</caption>
+			<thead>
+				<tr>
+					<th width="10%">属性</th>
+					<th style="text-align:left;padding-left:10px">功能</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>tpl</td>
+					<td style="text-align:left;padding-left:10px">
+						显示的主题内容母版
+					</td>
+				</tr>
+				<tr>
+					<td>intoCon</td>
+					<td style="text-align:left;padding-left:10px">布尔类型：移入消息框时是否显示</td>
+				</tr>
+				<tr>
+					<td>pos</td>
+					<td style="text-align:left;padding-left:10px">提示位置：left\top\right\bottom</td>
+				</tr>
+				<tr>
+					<td>delay</td>
+					<td style="text-align:left;padding-left:10px">信息框延时消息时间</td>
+				</tr>
+				<tr>
+					<td>showTime</td>
+					<td style="text-align:left;padding-left:10px">消息框显示时间</td>
+				</tr>
+				<tr>
+					<td>url</td>
+					<td style="text-align:left;padding-left:10px;line-height:24px">ajax请求url</td>
+				</tr>
+				<tr>
+					<td>method</td>
+					<td style="text-align:left;padding-left:10px">ajax请求method</td>
+				</tr>
+				<tr>
+					<td>data</td>
+					<td style="text-align:left;padding-left:10px">ajax请求data</td>
+				</tr>
+	
+			</tbody>
+		</table>
+	</div>
+
+	<script src="../js/ui/su_tableStyle.js"></script>
+	<script>
+		$(function() {
+			$(".datatable").su_tableStyle({
+				odd: "tr-odd"
+			});
+		})
+	</script>
+</body>
+
+</html>

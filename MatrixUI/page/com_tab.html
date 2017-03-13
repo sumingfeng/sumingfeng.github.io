@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="content">
+		<p class="bold">普通标签页</p>
+		<hr>
+		<div class="ui-tabBox" id="defaultTab">
+			<ul class="lis clearfix">
+				<li>
+					<a href="javascript:;">科技</a>
+				</li>
+				<li>
+					<a href="javascript:;">新闻</a>
+				</li>
+				<li>
+					<a href="javascript:;">房产</a>
+				</li>
+				<li>
+					<a href="javascript:;">娱乐</a>
+				</li>
+			</ul>
+			<div class="panel_con">
+
+				<div class="panel">
+					<p>内容1</p>
+					<p>内容1</p>
+					<p>内容1</p>
+					<p>内容1</p>
+					<p>内容1</p>
+					<p>内容1</p>
+					<p>内容1</p>
+				</div>
+				<div class="panel">
+					<p>内容2</p>
+					<p>内容2</p>
+					<p>内容2</p>
+					<p>内容2</p>
+					<p>内容2</p>
+					<p>内容2</p>
+				</div>
+				<div class="panel">
+					<p>内容3</p>
+					<p>内容3</p>
+					<p>内容3</p>
+					<p>内容3</p>
+					<p>内容3</p>
+					<p>内容3</p>
+				</div>
+				<div class="panel">
+					<p>内容4</p>
+					<p>内容4</p>
+					<p>内容4</p>
+					<p>内容4</p>
+					<p>内容4</p>
+					<p>内容4</p>
+				</div>
+			</div>
+			<div style="display:none">
+				<a href="javascript:;" class="prev btn_prev">&lt;&lt;prev</a>
+
+				<a href="javascript:;" class="prev btn_next">next&gt;&gt;</a>
+			</div>
+		</div>
+		
+		<p class="l-30 mt-20">HTML:</p>
+		<pre>&lt;div class=&quot;ui-tabBox&quot; id=&quot;defaultTab&quot;&gt;
+	&lt;ul class=&quot;lis clearfix&quot;&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;科技&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;新闻&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;房产&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;娱乐&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;panel_con&quot;&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;p&gt;内容1&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;p&gt;内容2&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;p&gt;内容3&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;p&gt;内容4&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+		<p class="l-30 mt-20">css:</p>
+		<pre>/* tab */
+
+.ui-tabBox .lis li {
+	float: left;
+	display: inline;
+	margin: 0 5px;
+}
+.ui-tabBox .lis a {
+	color: #666;
+	padding: 5px 20px;
+	color: #666;
+	display: block;
+	border: 1px solid #ddd;
+	border-bottom: none;
+	text-decoration: none
+}
+.ui-tabBox .current a {
+	background: #f6f8fa;
+}
+.ui-tabBox .panel_con {
+	padding: 10px;
+	border: 1px solid #ddd
+}</pre>
+		<p class="l-30 mt-20">JS调用方法:</p>
+		<pre>&lt;script src=&quot;/matrixPro/js/ui/su_tabslide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+		/* 普通tab */
+		$('#defaultTab').su_tabUI();
+	})
+&lt;/script&gt;</pre>
+		<p class="bold mt-20">ajax标签页</p>
+		<hr>
+		<div class="ui-tabBox" id="ajaxTab">
+			<ul class="lis clearfix">
+				<li>
+					<a href="javascript:;" _src="ajaxContent.html">科技</a>
+				</li>
+				<li>
+					<a href="javascript:;" _src="ajaxContent1.html">新闻</a>
+				</li>
+				<li>
+					<a href="javascript:;" _src="ajaxContent2.html">房产</a>
+				</li>
+				<li>
+					<a href="javascript:;" _src="ajaxContent3.html">娱乐</a>
+				</li>
+			</ul>
+			<div class="panel_con">
+
+				<div class="panel">
+					
+				</div>
+				<div class="panel">
+					
+				</div>
+				<div class="panel">
+					
+				</div>
+				<div class="panel">
+					
+				</div>
+			</div>
+			<div style="display:none">
+				<a href="javascript:;" class="prev btn_prev">&lt;&lt;prev</a>
+
+				<a href="javascript:;" class="prev btn_next">next&gt;&gt;</a>
+			</div>
+		</div>
+		<p class="l-30 mt-20">HTML:</p>
+		<pre>&lt;div class=&quot;ui-tabBox&quot; id=&quot;ajaxTab&quot;&gt;
+	&lt;ul class=&quot;lis clearfix&quot;&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot; _src=&quot;ajaxContent.html&quot;&gt;科技&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot; _src=&quot;ajaxContent1.html&quot;&gt;新闻&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot; _src=&quot;ajaxContent2.html&quot;&gt;房产&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot; _src=&quot;ajaxContent3.html&quot;&gt;娱乐&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;panel_con&quot;&gt;
+
+		&lt;div class=&quot;panel&quot;&gt;
+
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;display:none&quot;&gt;
+		&lt;a href=&quot;javascript:;&quot; class=&quot;prev btn_prev&quot;&gt;&amp;lt;&amp;lt;prev&lt;/a&gt;
+
+		&lt;a href=&quot;javascript:;&quot; class=&quot;prev btn_next&quot;&gt;next&amp;gt;&amp;gt;&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+		<p class="l-30 mt-20">JS:</p>
+		<pre>$('#ajaxTab').su_tabUI({
+			cache:true,
+			callback:function(){//回调console.log(this.initTab)}
+}); //cache为ajax是否缓存，如果为false则会更新数据</pre>
+		<p class="bold mt-20">轮播标签页1</p>
+		<hr>
+		<div class="ui-tabImg" id="playImg" style="width:600px; height:450px;margin:20px 0 20px 100px ">
+			<ul class="point clearfix">
+				<li>
+					<a href="javascript:;">三星Note4搭载了高通骁龙805四核2.7GHz处理器</a>
+				</li>
+				<li>
+					<a href="javascript:;">配备了高色彩饱和度的Super AMOLED屏幕，RGB色域已经接近90%</a>
+				</li>
+				<li>
+					<a href="javascript:;">1600万像素的后置摄像头，加入了OIS智能光学防抖</a>
+				</li>
+				<li>
+					<a href="javascript:;">全新默认壁纸颇有几分梵高《星夜》图特色</a>
+				</li>
+				<li>
+					<a href="javascript:;">界面依旧在方圆的UI中需求界面视觉的标准统一</a>
+				</li>
+				<li>
+					<a href="javascript:;">可自由调节应用窗口大小，也能将应用缩小成快捷图标显示在任意菜单页</a>
+				</li>
+			</ul>
+			<ul class="lis clearfix">
+				<li>
+					<a href="javascript:;">1</a>
+				</li>
+				<li>
+					<a href="javascript:;">2</a>
+				</li>
+				<li>
+					<a href="javascript:;">3</a>
+				</li>
+				<li>
+					<a href="javascript:;">4</a>
+				</li>
+				<li>
+					<a href="javascript:;">5</a>
+				</li>
+				<li>
+					<a href="javascript:;">6</a>
+				</li>
+			</ul>
+			<div class="panel_con" style="overflow:hidden;width:600px; height:450px; ">
+
+				<div class="panel">
+					<img src="./images/ui/1.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/2.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/3.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/4.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/5.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/6.jpg">
+				</div>
+			</div>
+			<div>
+				<a href="javascript:;" class="prev btn_prev" style="position:absolute;left:-40px; top:45%;font-size:50px; text-decoration: none; color:#ccc; font-weight:700">◁</a>
+
+				<a href="javascript:;" class="prev btn_next" style="position:absolute;top:45%;right:-40px;font-size:50px; text-decoration: none; color:#ccc;font-weight:700">▷</a>
+			</div>
+		</div>
+		<p class="l-30 mt-20">HTML:</p>
+		<pre>&lt;div class=&quot;ui-tabImg&quot; id=&quot;playImg&quot; style=&quot;width:600px; height:450px;margin:20px 0 20px 100px &quot;&gt;
+	&lt;ul class=&quot;point clearfix&quot;&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;三星Note4搭载了高通骁龙805四核2.7GHz处理器&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;配备了高色彩饱和度的Super AMOLED屏幕，RGB色域已经接近90%&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;1600万像素的后置摄像头，加入了OIS智能光学防抖&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;全新默认壁纸颇有几分梵高《星夜》图特色&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;界面依旧在方圆的UI中需求界面视觉的标准统一&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;可自由调节应用窗口大小，也能将应用缩小成快捷图标显示在任意菜单页&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ul class=&quot;lis clearfix&quot;&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;1&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;2&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;3&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;4&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;5&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;6&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class=&quot;panel_con&quot; style=&quot;overflow:hidden;width:600px; height:450px; &quot;&gt;
+
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/1.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/2.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/3.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/4.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/5.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/6.jpg&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;a href=&quot;javascript:;&quot; class=&quot;prev btn_prev&quot; style=&quot;position:absolute;left:-40px; top:45%;font-size:50px; text-decoration: none; color:#ccc; font-weight:700&quot;&gt;◁&lt;/a&gt;
+		&lt;a href=&quot;javascript:;&quot; class=&quot;prev btn_next&quot; style=&quot;position:absolute;top:45%;right:-40px;font-size:50px; text-decoration: none; color:#ccc;font-weight:700&quot;&gt;▷&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+		<p class="l-30 mt-20">CSS:</p>
+		<pre>/* ui-tabImg */
+
+.ui-tabImg {
+	position: relative
+}
+.ui-tabImg .panel_con {
+	padding: 0px;
+}
+.ui-tabImg .point {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 10px 0;
+	overflow: hidden;
+	z-index: 333
+}
+.ui-tabImg .point li {
+	float: left;
+	display: inline;
+	padding: 0 0 0 10px
+}
+.ui-tabImg .point a {
+	color: #fff;
+}
+.ui-tabImg .lis {
+	position: absolute;
+	right: 10px;
+	bottom: 13px;
+	z-index: 334;
+}
+.ui-tabImg .lis li {
+	float: left;
+	display: inline;
+	padding: 0 0 0 10px
+}
+.ui-tabImg .lis a {
+	display: block;
+	width: 10px;
+	height: 10px;
+	overflow: hidden;
+	line-height: 333px;
+	background: #999;
+	outline: none;
+	text-decoration: none
+}
+.ui-tabImg .lis .current a {
+	background: #d2eaff
+}</pre>
+		<p class="l-30 mt-20">JS:</p>
+		<pre>&lt;script src=&quot;/matrixPro/js/ui/su_tabslide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+		/* 图片播放 */
+		$(&quot;#playImg&quot;).su_tabUI({
+			initTab: 0,
+			title: &quot;.point li&quot;,
+			autoPlay: true
+		});
+	})
+&lt;/script&gt;</pre>
+		<p class="bold mt-20">轮播标签页2</p>
+		<hr>
+		<div class="ui-tabFocus" id="playFocus" style="width:600px; height:450px;margin:20px 0 20px 100px ">
+			<ul class="lis clearfix">
+				<li>
+					<a href="javascript:;">1</a>
+				</li>
+				<li>
+					<a href="javascript:;">2</a>
+				</li>
+				<li>
+					<a href="javascript:;">3</a>
+				</li>
+				<li>
+					<a href="javascript:;">4</a>
+				</li>
+				<li>
+					<a href="javascript:;">5</a>
+				</li>
+				<li>
+					<a href="javascript:;">6</a>
+				</li>
+			</ul>
+
+			<div class="panel_con" style="overflow:hidden;width:600px; height:450px; ">
+
+				<div class="panel">
+					<img src="./images/ui/1.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/2.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/3.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/4.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/5.jpg">
+				</div>
+				<div class="panel">
+					<img src="./images/ui/6.jpg">
+				</div>
+			</div>
+
+		</div>
+		<p class="l-30 mt-20">HTML:</p>
+		<pre>&lt;div class=&quot;ui-tabFocus&quot; id=&quot;playFocus&quot; style=&quot;width:600px; height:450px;margin:20px 0 20px 100px &quot;&gt;
+	&lt;ul class=&quot;lis clearfix&quot;&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;1&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;2&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;3&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;4&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;5&lt;/a&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href=&quot;javascript:;&quot;&gt;6&lt;/a&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+
+	&lt;div class=&quot;panel_con&quot; style=&quot;overflow:hidden;width:600px; height:450px; &quot;&gt;
+
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/1.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/2.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/3.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/4.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/5.jpg&quot;&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;panel&quot;&gt;
+			&lt;img src=&quot;../images/ui/6.jpg&quot;&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;</pre>
+		<p class="l-30 mt-20">CSS:</p>
+		<pre>/*ui-tabFocus*/
+
+.ui-tabFocus {
+	position: relative
+}
+.ui-tabFocus .panel_con {
+	padding: 0px;
+}
+.ui-tabFocus .lis {
+	position: absolute;
+	right: 10px;
+	bottom: 0px;
+	padding: 10px 0;
+	overflow: hidden;
+	z-index: 333
+}
+.ui-tabFocus .lis li {
+	float: left;
+	display: inline;
+	padding: 0 0 0 10px;
+}
+.ui-tabFocus .lis a {
+	padding: 4px 8px;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 12px;
+	font-family: verda;
+	border-radius: 50px;
+	background: #9e9e9e;
+	outline: none;
+	text-decoration: none
+}
+.ui-tabFocus .current a {
+	background: #ff6162
+}</pre>
+		<p class="l-30 mt-20">JS:</p>
+		<pre>&lt;script src=&quot;/matrixPro/js/ui/su_tabslide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+		/* 焦点图 */
+		$(&quot;#playFocus&quot;).su_tabUI({
+			initTab: 2,
+			autoPlay: true
+		});
+
+	})
+&lt;/script&gt;</pre>
+	</div>
+	<script src="./js/ui/su_tabslide.js"></script>
+	<script>
+		$(function() {
+
+			/* 普通tab */
+			$('#defaultTab').su_tabUI();
+			
+			
+			$('#ajaxTab').su_tabUI({cache:true,callback:function(){
+				console.log(this.initTab)
+			}});
+			
+
+			/* 图片播放 */
+			$("#playImg").su_tabUI({
+				initTab: 0,
+				title: ".point li",
+				autoPlay: true
+			});
+
+			/* 焦点图 */
+			$("#playFocus").su_tabUI({
+				initTab: 2,
+				autoPlay: true
+			});
+
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="content">
+	<p class="bold">分页案例 （Matrix.Pages-demo）</p>
+	<hr/>
+	<p class="l-30"><b>项目名：</b>matrix.pages-demo</p>
+	<p class="l-30"><b>项目路径：</b>http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/pages-demo</p>
+
+	<p class="l-30"><b>其流程主要如下：</b></p>
+	<p class="l-30">
+	1.获取页面查询条件参数<br/>
+	2.页面发送ajax请求{获得总条数以及获得返回页面的数据集}<br/>
+	3.后台controller层<br/>
+	4.返回json串<br/>
+	5.append到页面上展示</p>
+	<br/>
+	<pre>
+	<h3>页面部分：</h3>
+	需引入一个jsp文件page.jsp，此jsp里面主要是分页部分的html代码片断
+	引入三个js文件，su_pagination.js、su_tableStyle.js、page.js，文件在matrix.pages-demo下webapp\resources\guifan\js下
+	
+	需要注意的是page.js里写有三个公共方法
+	
+	<b>getOptionsFromForm</b>
+	作用：初始化分页js对象
+
+	<b>getTotalCount(url,params)</b>
+	作用：ajax获得查询出来的总条数
+	参数：url为请求获得查询总条数的路径，params为页面代入的查询条件
+	
+	<b>pageselectCallback</b>
+	作用：回滚方法，主要为展示数据
+	内置方法getPageList(page,pageSize)为查询得到返回数据然后append页面展示，
+	因数据拼装有不同，目前没有提出公共的，需要自己在页面去实现
+	
+	页面初始化
+	var optInit = getOptionsFromForm();
+	totalCount = getTotalCount(url,getParams()); //getParams()为获取页面参数
+	$(".pagination").pagination(totalCount, optInit);
+	
+	<h3>controller层里实现：</h3>
+	1.初始化Page对象，传入参数，调用init方法，返回参数
+	  
+	  Page<MsgTipBean> page = new Page<MsgTipBean>(PageUtil.PAGE_SIZE);
+	  int[] pageParams = PageUtil.init(page, request);
+	  
+	2.传入pageParams和查询条件获得分页数据集
+	
+	  List<MsgTipBean> msgList = msgTipService.getList(查询条件,pageParams);
+	  
+	3.根据查询条件查询符合总条数
+	
+	  int totalCount = msgTipService.countList(查询条件);
+	  
+	4.将结果集set到Page对象
+	
+	  page.setTotalCount(totalCount);
+	  page.setResult(msgList);
+	
+	5.返回json对象
+	
+	  JSONObject pageJson = new JSONObject(page);
+	  return pageJson.toString();
+			
+	</pre>
+	
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html charset="utf-8">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="inner-hd">
+			<a class="back" href="javascript:;">&lt;</a>
+			<h1 class="title">
+				<img src="images/10086.png">
+			</h1>
+			<a class="house" href="javascript:;">&lt;</a>
+		</div>
+	</header>
+
+	<section class="main">
+		<div class="inner-main">
+			<form name="" class="ui-form" method="post" action="" id="validForm">
+				<div class="ui-form-item">
+					<label class="ui-label user">
+						<em class="ui-form-required">*</em>用户名：</label>
+					<input class="ui-input spl" name="moble" type="text" placeholder="请输入11位四川移动号码">
+				</div>
+
+				<div class="ui-form-item">
+					<label class="ui-label pwd">
+						<em class="ui-form-required">*</em>请输入您的密码：</label>
+					<input class="ui-input pwd_txt" name="d6" type="password" id="level_pwd" placeholder="请输入6位数字密码">
+					<input class="ui-button-normal" type="button" value="获取短信验证码" id="get_code">
+					<div class="ui-sec-tip no-fit">
+						<label for="level_pwd" class="error">占位</label>
+					</div>
+				</div>
+
+				<div class="ui-form-item">
+					<input class="ui-input" name="chk_code" type="text" id="chk_code" placeholder="请输入验证码">
+					<img src="images/code.jpg" class="chk_code">
+					<div class="ui-sec-tip no-fit">
+						<label for="chk_code" class="error">提示占位</label>
+					</div>
+				</div>
+
+				<div class="ui-form-item">
+					<label class="ui-label"></label>
+					<span class="ui-button ui-button-ok">
+						<input class="ui-button-text" type="button" value="登录网厅" id="isValid">
+					</span>
+				</div>
+
+				<table class="more-op" width="100%">
+					<tr>
+						<td width="50%" style="text-align:left">
+							<a href="#">免费注册</a>
+						</td>
+						<td style="text-align:right">
+							<a href="#">忘记密码</a>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</section>
+	<script src="js/jq.js"></script>
+	<script src="js/su_validation.js"></script>
+	<script>
+		
+		/*客户端验证*/
+
+		$(function() {
+
+			/*为空的提示内容*/
+
+			var must = '<span class="warning3">必填</span>'; //设置必填HTML
+
+			/*前端验证未加密*/
+
+			$("#validForm").validate({
+
+				/**根据输入框对应的name值验证**/
+
+				rules: { //规则
+
+					moble: {
+
+						required: true, //true 为必填
+
+						mobile: true
+
+					},
+
+					d6: {
+
+						required: true,
+
+						d6: true
+					},
+					
+					chk_code:{
+					
+						required: true
+					}
+				},
+
+				messages: {
+
+					moble: { 
+
+						required: must
+
+					},
+
+					d6: {
+
+						required: must
+
+					},
+					
+					chk_code:{
+					
+						required: must
+					}
+				}
+			})
+
+			/*四川移动手机验证方法扩展*/
+
+			jQuery.validator.addMethod("mobile", function(value, element) {
+
+				return this.optional(element) || (/^0{0,1}(13[0-9]|14[0-9]|15[0-9]|18[0-9])[0-9]{8}$/.test(value))
+
+			}, '<span class="warning3">请正确输入11位移动手机号码</span>');
+
+			/*6位数字验证方法扩展*/
+
+			jQuery.validator.addMethod("d6", function(value, element) {
+
+				return this.optional(element) || (/^\d{6}$/.test(value))
+
+			}, '<span class="warning3">必须是6位数字</span>');
+
+			$('#isValid').click(function(e) {
+
+				if ($("#validForm").validate().form()) { //表单客户端前端验证是否通过
+
+
+				}
+			})
+
+
+		})
+	</script>
+
+</body>
+
+</html>

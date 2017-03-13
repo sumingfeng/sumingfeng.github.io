@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="content">
+		<p class="bold">普通表格</p>
+		<hr>
+		<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>商品信息</th>
+					<th>商品分类</th>
+					<th>商品单价</th>
+					<th>佣金额</th>
+					<th>需付佣金</th>
+					<th>商品状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>商品信息商品信息商品信息商品信息</td>
+					<td>彩铃</td>
+					<td>100.00</td>
+					<td>2.5%</td>
+					<td>2.50</td>
+					<td>可推广</td>
+				</tr>
+				<tr>
+					<td>商品信息商品信息商品信息商品信息</td>
+					<td>彩铃</td>
+					<td>100.00</td>
+					<td>2.5%</td>
+					<td>2.50</td>
+					<td>可推广</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<p class="mt-20 l-30">HTML</p>
+	<pre>&lt;table class=&quot;datatable&quot; width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;商品信息&lt;/th&gt;
+			&lt;th&gt;商品分类&lt;/th&gt;
+			&lt;th&gt;商品单价&lt;/th&gt;
+			&lt;th&gt;佣金额&lt;/th&gt;
+			&lt;th&gt;需付佣金&lt;/th&gt;
+			&lt;th&gt;商品状态&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;商品信息商品信息商品信息商品信息&lt;/td&gt;
+			&lt;td&gt;彩铃&lt;/td&gt;
+			&lt;td&gt;100.00&lt;/td&gt;
+			&lt;td&gt;2.5%&lt;/td&gt;
+			&lt;td&gt;2.50&lt;/td&gt;
+			&lt;td&gt;可推广&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;商品信息商品信息商品信息商品信息&lt;/td&gt;
+			&lt;td&gt;彩铃&lt;/td&gt;
+			&lt;td&gt;100.00&lt;/td&gt;
+			&lt;td&gt;2.5%&lt;/td&gt;
+			&lt;td&gt;2.50&lt;/td&gt;
+			&lt;td&gt;可推广&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</pre>
+	<p class="mt-20 l-30">CSS</p>
+	<pre>/*表格*/
+.datatable{
+	background:#fff;
+	border:1px solid #E4E4E4;
+	text-align:center;
+	position:relative;
+}
+.datatable th {
+	border:1px solid #e9ecef;
+	border-bottom:2px solid #0076bc;
+	font-weight:bold;
+	line-height:35px;
+	padding-top:10px;
+	color:#494949;
+	background:#f6f8fa;
+}
+.datatable td {
+	line-height:50px;
+	border-right:1px solid #e9ecef;
+}
+
+.datatable .tr-odd {
+	background: #f6f8fa;
+}
+
+.datatable .selected {
+	background: #d2eaff;
+}
+
+.datatable .tr-trig {
+	background: #d2eaff;
+}</pre>
+	<p class="mt-20 l-30">JS</p>
+	<pre>&lt;script src=&quot;"../js/ui/su_tableStyle.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+		$('.datatable').su_tableStyle({
+			odd: &quot;tr-odd&quot;
+		})
+	})
+&lt;/script&gt;</pre>
+	<p class="bold mt-20">带复选框的表格</p>
+		<hr>
+	<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="checkAll"></th>
+					<th>商品信息</th>
+					<th>商品分类</th>
+					<th>商品单价</th>
+					<th>佣金额</th>
+					<th>需付佣金</th>
+					<th>商品状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="items"></td>
+					<td>商品信息商品信息商品信息商品信息</td>
+					<td>彩铃</td>
+					<td>100.00</td>
+					<td>2.5%</td>
+					<td>2.50</td>
+					<td>可推广</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="items"></td>
+					<td>商品信息商品信息商品信息商品信息</td>
+					<td>彩铃</td>
+					<td>100.00</td>
+					<td>2.5%</td>
+					<td>2.50</td>
+					<td>可推广</td>
+				</tr>
+			</tbody>
+		</table>
+	<p class="mt-20 l-30">HTML</p>
+	<pre>&lt;script src=&quot;"../js/ui/su_tableStyle.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+		$('.datatable').su_tableStyle({
+			odd: &quot;tr-odd&quot;
+		})
+	})
+&lt;/script&gt;</pre>
+	<script src="./js/ui/su_tableStyle.js"></script>
+	<script>
+		$(function(){
+			$('.datatable').su_tableStyle({odd:"tr-odd"})
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+</head>
+
+<body>
+
+	<div class="fileMagBox clearfix">
+		<div class="leftTableSearch">
+			<form action="#">
+				<div id="searchInputArea">
+					<div class="sh">
+						<input type="text" class="input-tx" placeholder="请输入查询信息">
+						<input type="button" value="查询" class="bt_sign04">
+					</div>
+				</div>
+
+				<div class="dataTable">
+					<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+						<thead>
+							<tr>
+								<th>文件名</th>
+								<th>标1</th>
+								<th>标2</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+							<tr>
+								<td>dfdfd.txt</td>
+								<td>dsdsfs.pdf</td>
+								<td>ddd.hf</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+
+		</div>
+		<div class="upfileLis">
+
+			<ol id="uploadedName">
+				<li>111.jpg</li>
+				<li>222.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				<li>333.jpg</li>
+				
+				
+			</ol>
+			<div class="btnArea">
+
+				<a href="javascript:;" class="bt_sign01 txt-file">上传
+					<input type="file" class="spl-input">
+				</a>
+				<input type="button" value="删除" class="bt_sign01">
+				<input type="button" value="111" class="bt_sign01">
+				<input type="button" value="222" class="bt_sign01">
+				<input type="button" value="333" class="bt_sign01">
+			</div>
+		</div>
+
+	</div>
+	<script>
+		$("#JS_fillBox").click(function() {
+
+				$.su_dialog("hideUpFileBox", {
+
+						mold: "content", //加载类型
+
+						title: "标题",
+
+						width: '900',
+
+						height: '500'
+
+					}
+
+				)
+
+
+				/*表格*/
+				$('.datatable').su_tableStyle({
+					odd: "tr-odd"
+				})
+
+
+
+			}
+
+		)
+	</script>
+</body>
+
+</html>

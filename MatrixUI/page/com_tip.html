@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="content">
+		
+		<p class="bold">普通提示</p>
+		
+		<hr>
+		
+		<a href="javascript:void(0)" class="lk3">dfsafdsafdsafds？</a> <br><br><br><br>
+		
+		
+		
+		<p class="bold mt-40">ajax提示</p>
+		
+		<hr>
+		<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+					<th>商品信息</th>
+					<th>商品分类</th>
+					<th>商品单价</th>
+					<th>佣金额</th>
+					<th>需付佣金</th>
+					<th>商品状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="td-tip">商品信息商品信息商品信息商品信息</td>
+					<td>彩铃</td>
+					<td>100.00</td>
+					<td>2.5%</td>
+					<td>2.50</td>
+					<td>可推广</td>
+				</tr>
+				<tr>
+					<td class="td-tip">商品信息商品信息商品信息商品信息</td>
+					<td>彩铃</td>
+					<td>100.00</td>
+					<td>2.5%</td>
+					<td>2.50</td>
+					<td>可推广</td>
+				</tr>
+			</tbody>
+		</table>
+
+	<script src="./js/ui/su_allTip.js"></script>
+	
+	<script>
+		
+		$('.p').su_allTip({url:'tip_ajax.html',pos:'right'})
+		
+		$('.lk').su_allTip({tpl:'乘船过2222222222222江陵，两岸闻泣声。不见梁元帝，唯有佛诵经。',pos:'bottom',intoCon:false,delay:0,showTime:0})
+		
+		$('.lk2').su_allTip({tpl:'乘船过23333江陵，两岸闻泣声。不见梁元帝，唯有佛诵经。',pos:'right',intoCon:false,delay:300,showTime:0})
+		
+		$('.lk3').su_allTip({tpl:'乘船过555江陵，两岸闻泣声。不见梁元帝，唯有佛诵经。',pos:'right',delay:300,showTime:0})
+		
+		$(".td-tip").su_allTip({tpl:'乘船过555江陵，两岸闻泣声。不见梁元帝，唯有佛诵经。',pos:'right',delay:300,showTime:0})
+	</script>
+</body>
+
+</html>

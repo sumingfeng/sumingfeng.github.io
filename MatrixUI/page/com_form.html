@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+
+<body>
+	<form name="" class="ui-form" method="post" action="" id="validForm">
+		<fieldset>
+			<legend>表单标题</legend>
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>性别：</label>
+				<select class="ui-select" name="select">
+					<option value="">——请选择——</option>
+					<option value="a">男</option>
+					<option value="b">女</option>
+					<option value="c">保密</option>
+				</select>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>用户名：</label>
+				<input class="ui-input" name="user" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label vt">
+					<em class="ui-form-required">*</em>上传图片：</label>
+				<div class="div ib">
+					<div class="line">
+						<span class="span">
+							<input name="" type="text" id="viewfile" onmouseout="document.getElementById('upload').style.display='none';" class="inputstyle" />
+						</span>
+						<label for="unload" onmouseover="document.getElementById('upload').style.display='block';" class="file1">浏览...</label>
+						<input type="file" name="fileImg" onchange="document.getElementById('viewfile').value=this.value;this.style.display='none';" class="file" id="upload" accept="image/gif,image/jpeg,image/jpg,image/png" />
+					</div>
+				</div>
+				<div class="ui-sec-tip  no-fit">
+					<label for="upload" class="error">占位</label>
+				</div>
+
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>请输入您的密码：</label>
+				<input class="ui-input" name="password" type="password" id="level_pwd">
+			</div>
+
+			<div class="ui-form-item pw-letter" id="pw_letter">
+				<label class="ui-label"></label>
+				<span class="color1">低</span>
+				<span class="color2">中</span>
+				<span class="color3">高</span>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>确认密码：</label>
+				<input class="ui-input" name="repeat_pwd" type="password">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>请输入您的邮箱：</label>
+				<input class="ui-input" name="email" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>手机号：</label>
+				<input class="ui-input" name="phone" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>身份证号：</label>
+				<input class="ui-input" name="id_card" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>银行卡：</label>
+				<input class="ui-input" name="bank_card" id="bank_card" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>日期：</label>
+				<input class="ui-input" name="date" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>网址：</label>
+				<input class="ui-input" name="url" type="text" placeholder="http://www.abc.com">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label vt">
+					<em class="ui-form-required">*</em>爱好：</label>
+				<div class="ui-sec-item">
+					<div>
+						<label>
+							<input type="checkbox" name="topic">  运动</label>
+						<label>
+							<input type="checkbox" name="topic"> 音乐</label>
+						<label>
+							<input type="checkbox" name="topic"> 影视</label>
+						<label>
+							<input type="checkbox" name="topic"> 佳人</label>
+					</div>
+					<div>
+						<label>
+							<input type="checkbox" name="topic"> 数码</label>
+						<label>
+							<input type="checkbox" name="topic"> 科技</label>
+						<label>
+							<input type="checkbox" name="topic"> 宠物</label>
+						<label>
+							<input type="checkbox" name="topic"> 美图</label>
+					</div>
+					<div class="ui-sec-tip">
+						<label for="topic" class="error">占位</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label vt">
+					<em class="ui-form-required">*</em>是否受伤：</label>
+				<div class="ui-radio-item">
+					<label>
+						<input type="radio" name="radio">  是</label>
+					<label>
+						<input type="radio" name="radio"> 一般</label>
+					<label>
+						<input type="radio" name="radio"> 很多</label>
+					<div class="ui-sec-tip">
+						<label for="radio" class="error">占位</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label vt">
+					<em class="ui-form-required">*</em>说明：</label>
+				<textarea class="txt-area" name="txtArea"></textarea>
+				<div class="ui-sec-tip no-fit">
+					<label for="txtArea" class="error">占位</label>
+				</div>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label"></label>
+				<span class="ui-button ui-button-ok">
+					<input class="ui-button-text" type="button" value="确 定" id="isValid">
+				</span>
+			</div>
+		</fieldset>
+	</form>
+	
+	<p class="l-30 mt-20">HTML:</p>
+	<pre>&lt;form name=&quot;&quot; class=&quot;ui-form&quot; method=&quot;post&quot; action=&quot;&quot; id=&quot;validForm&quot;&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;表单标题&lt;/legend&gt;
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;性别：&lt;/label&gt;
+			&lt;select class=&quot;ui-select&quot; name=&quot;select&quot;&gt;
+				&lt;option value=&quot;&quot;&gt;——请选择——&lt;/option&gt;
+				&lt;option value=&quot;a&quot;&gt;男&lt;/option&gt;
+				&lt;option value=&quot;b&quot;&gt;女&lt;/option&gt;
+				&lt;option value=&quot;c&quot;&gt;保密&lt;/option&gt;
+			&lt;/select&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;用户名：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;user&quot; type=&quot;text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label vt&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;上传图片：&lt;/label&gt;
+			&lt;div class=&quot;div ib&quot;&gt;
+				&lt;div class=&quot;line&quot;&gt;
+					&lt;span class=&quot;span&quot;&gt;
+						&lt;input name=&quot;&quot; type=&quot;text&quot; id=&quot;viewfile&quot; onmouseout=&quot;document.getElementById('upload').style.display='none';&quot; class=&quot;inputstyle&quot; /&gt;
+					&lt;/span&gt;
+					&lt;label for=&quot;unload&quot; onmouseover=&quot;document.getElementById('upload').style.display='block';&quot; class=&quot;file1&quot;&gt;浏览...&lt;/label&gt;
+					&lt;input type=&quot;file&quot; name=&quot;fileImg&quot; onchange=&quot;document.getElementById('viewfile').value=this.value;this.style.display='none';&quot; class=&quot;file&quot; id=&quot;upload&quot; accept=&quot;image/*&quot; /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;ui-sec-tip  no-fit&quot;&gt;
+				&lt;label for=&quot;upload&quot; class=&quot;error&quot;&gt;占位&lt;/label&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;请输入您的密码：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;password&quot; type=&quot;password&quot; id=&quot;level_pwd&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item pw-letter&quot; id=&quot;pw_letter&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;&lt;/label&gt;
+			&lt;span class=&quot;color1&quot;&gt;低&lt;/span&gt;
+			&lt;span class=&quot;color2&quot;&gt;中&lt;/span&gt;
+			&lt;span class=&quot;color3&quot;&gt;高&lt;/span&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;确认密码：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;repeat_pwd&quot; type=&quot;password&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;请输入您的邮箱：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;email&quot; type=&quot;text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;手机号：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;phone&quot; type=&quot;text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;身份证号：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;id_card&quot; type=&quot;text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;银行卡：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;bank_card&quot; id=&quot;bank_card&quot; type=&quot;text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;日期：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;date&quot; type=&quot;text&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;网址：&lt;/label&gt;
+			&lt;input class=&quot;ui-input&quot; name=&quot;url&quot; type=&quot;text&quot; placeholder=&quot;http://www.abc.com&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label vt&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;爱好：&lt;/label&gt;
+			&lt;div class=&quot;ui-sec-item&quot;&gt;
+				&lt;div&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;运动&lt;/label&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;音乐&lt;/label&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;影视&lt;/label&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;佳人&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;数码&lt;/label&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;科技&lt;/label&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;宠物&lt;/label&gt;
+					&lt;label&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;topic&quot;&gt;美图&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;ui-sec-tip&quot;&gt;
+					&lt;label for=&quot;topic&quot; class=&quot;error&quot;&gt;占位&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label vt&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;是否受伤：&lt;/label&gt;
+			&lt;div class=&quot;ui-radio-item&quot;&gt;
+				&lt;label&gt;
+					&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt;是&lt;/label&gt;
+				&lt;label&gt;
+					&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt;一般&lt;/label&gt;
+				&lt;label&gt;
+					&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt;很多&lt;/label&gt;
+				&lt;div class=&quot;ui-sec-tip&quot;&gt;
+					&lt;label for=&quot;radio&quot; class=&quot;error&quot;&gt;占位&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label vt&quot;&gt;
+				&lt;em class=&quot;ui-form-required&quot;&gt;*&lt;/em&gt;说明：&lt;/label&gt;
+			&lt;textarea class=&quot;txt-area&quot; name=&quot;txtArea&quot;&gt;&lt;/textarea&gt;
+			&lt;div class=&quot;ui-sec-tip no-fit&quot;&gt;
+				&lt;label for=&quot;txtArea&quot; class=&quot;error&quot;&gt;占位&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;ui-form-item&quot;&gt;
+			&lt;label class=&quot;ui-label&quot;&gt;&lt;/label&gt;
+			&lt;span class=&quot;ui-button ui-button-ok&quot;&gt;
+				&lt;input class=&quot;ui-button-text&quot; type=&quot;button&quot; value=&quot;确 定&quot; id=&quot;isValid&quot;&gt;
+			&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</pre>
+	<p class="l-30 mt-20">CSS:</p>
+	<pre>/* 
+ * @name: 表单项 
+ * @overview: 通用文本输入框
+ * @require: null
+ */
+
+.ui-input {
+	height: 24px;
+	border: 1px solid #D3D5DB;
+	line-height: 24px;
+	border-radius: 3px;
+	padding: 0 3px;
+	color: #666
+}
+.ui-input:hover {
+	border: 1px solid #43b3e7
+}
+.ui-select {
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #D3D5DB;
+	vertical-align: middle;
+	border-radius: 3px;
+	color: #666;
+}
+/* 
+ * @name: ui-form 
+ * @overview: 通用表单
+ * @require: ui-input,ui-button
+ */
+
+.ui-form {
+	font-size: 12px;
+}
+.ui-form legend {
+	display: none
+}
+.ui-form .ui-input {
+	width: 194px;
+	margin-right: 10px;
+}
+.ui-form .ui-select {
+	margin-right: 10px;
+}
+.ui-form-item {
+	margin: 5px 0;
+	line-height: 32px;
+}
+.ui-form .ui-label {
+	display: inline-block;
+	text-align: right;
+	color: #696969;
+	font-weight: bold;
+	width: 160px;
+	padding-right: 10px;
+	font-size: 12px;
+}
+.ui-form .ui-select {
+	width: 200px;
+}
+.ui-form .pw-letter span {
+	display: inline-block;
+	height: 16px;
+	width: 62px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 16px;
+	color: #FFF;
+	border-right: 1px solid #FFF;
+	background: #e4e4e4;
+}
+.ui-form-required {
+	color: #ff1200;
+	font-size: 16px;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+.ui-form .pw-letter strong {
+	font-weight: normal
+}
+.ui-form .ui-button-text {
+	border: none;
+	height: 32px;
+	background: #0076bc;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 32px;
+	border-radius: 3px;
+	padding: 0 20px;
+	*padding: 0 5px;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.ui-form .warning1 {
+	background: #ffcece url(../images/ui/warning.png) 5px -50px no-repeat;
+	border: 1px solid #df8f8f;
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	color: #ff3939;
+	padding: 0 10px 0 25px;
+	vertical-align: middle;
+}
+.ui-form .warning2 {
+	background: url(../images/ui/warning.png) 5px -24px no-repeat;
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 10px 0 25px;
+	vertical-align: middle;
+}
+.ui-form .warning3 {
+	background: #fffbcc url(../images/ui/warning.png) 5px 0 no-repeat;
+	border: 1px solid #e6db55;
+	display: inline-block;
+	height: 22px;
+	line-height: 22px;
+	color: #a29606;
+	padding: 0 10px 0 25px;
+	vertical-align: middle;
+}
+.ui-form .pw-letter-low .color1 {
+	background: #cc1b00;
+}
+.ui-form .pw-letter-mid .color2 {
+	background: #ff6600;
+}
+.ui-form .pw-letter-high .color3 {
+	background: #ff6600;
+}
+.ui-form .ui-sec-item {
+	display: inline-block;
+	width: 400px;
+	zoom: 1;
+	*display: inline
+}
+.ui-form .ui-sec-item label {
+	margin-right: 10px
+}
+.ui-form .ui-sec-tip .error {
+	display: none
+}
+.ui-form .vt {
+	vertical-align: top
+}
+.ui-form .ui-radio-item {
+	display: inline-block;
+	width: 400px;
+	zoom: 1;
+	*display: inline
+}
+.ui-form .ui-radio-item label {
+	margin-right: 10px;
+}
+.ui-form .ib {
+	display: inline-block;
+	_zoom: 1;
+	*display: inline
+}
+.ui-form .no-fit {
+	padding: 0 0 0 170px;
+}
+.ui-form .txt-area {
+	width: 294px;
+	height: 60px;
+	overflow: auto;
+	border: 1px solid #d3d5db;
+	border-radius: 3px;
+	padding: 3px;
+	color: #666
+}
+.ui-form .div {
+	/*margin:0 auto; width:100%;*/
+	overflow: hidden;
+	/*padding:20px 0;*/
+	width: 400px;
+}
+.ui-form .line {
+	position: relative;
+	/*margin:0 auto;*/
+	width: 300px;
+	text-align: left;
+	margin-top: 3px;
+}
+.ui-form .line span.span {
+	float: left;
+	padding-top: 2px;
+}
+.ui-form .file {
+	position: absolute;
+	left: 0;
+	width: 250px;
+	top: 0;
+	height: 28px;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	cursor: pointer
+}
+.ui-form .file1 {
+	float: left;
+	margin-left: 8px;
+	z-index: 1;
+	width: 66px;
+	height: 28px;
+	line-height: 28px;
+	background: url(../images/ui/liulan.gif) no-repeat 0 0;
+	text-indent: -9999px;
+	cursor: pointer
+}
+.ui-form .inputstyle {
+	border: 1px solid #BEBEBE;
+	width: 170px;
+	float: left;
+	height: 23px;
+	line-height: 23px;
+	background: #FFF;
+	z-index: 99
+}</pre>
+	<p class="l-30 mt-20">JS:</p>
+	<pre>&lt;script src=&quot;"../js/ui/su_validation.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+
+		var must = '&lt;span class=&quot;warning3&quot;&gt;必填&lt;/span&gt;'; //设置必填HTML
+
+		var pw_letter = $('#pw_letter'); //安全等级对象
+
+		/*表单验证*/
+
+		$(&quot;#validForm&quot;).validate({
+
+			//errorElement: &quot;em&quot;,
+
+			rules: { //规则
+
+				select: { //下拉必选
+
+					select: true
+
+				},
+
+				user: {
+
+					required: true, //必填
+
+					rangelength: [6, 20] //6到20个字符
+
+				},
+
+				email: {
+
+					required: true, //必填
+
+					email: true //邮箱验证开启
+				},
+
+				password: {
+
+					required: true, //必填
+
+					rangelength: [6, 20] //6到20个字符
+
+				},
+
+				repeat_pwd: {
+
+					required: true, //必填
+
+					rangelength: [6, 20],
+
+					equalTo: &quot;#level_pwd&quot; //是否两次输入一致
+
+				},
+
+				phone: { //移动手机
+
+					required: true, //必填
+
+					phone: true //中国移动运营商手机号验证开启
+
+				},
+
+				id_card: { //身份证
+
+					required: true, //必填
+
+					id_card: true //中国移动运营商手机号验证开启
+
+				},
+
+				bank_card: { //银行卡
+
+					required: true, //必填
+
+					bank_card: true
+
+				},
+
+				date: { //日期：yy-mm-dd
+
+					required: true, //必填
+
+					dateRule: true //开启验证
+				},
+
+				url: { //网址
+
+					required: true, //必填
+
+					url: true //开启验证
+				},
+
+				topic: { //复选框
+
+					required: true, //必选
+
+					minlength: 2
+
+				},
+
+				radio: { //单选
+
+					required: true //必填
+				},
+
+				txtArea: { //说明
+
+					required: true, //必填
+
+					maxlength: 200
+
+				},
+
+				fileImg: {
+
+					required: true
+				}
+			},
+
+			messages: { //信息反馈
+
+				user: {
+
+					required: must,
+
+					rangelength: '&lt;span class=&quot;warning1&quot;&gt;6到20个字符&lt;/span&gt;'
+				},
+
+				email: {
+
+					required: must, //必填
+
+					email: '&lt;span class=&quot;warning1&quot;&gt;邮箱格式不正确&lt;/span&gt;'
+				},
+
+				password: {
+
+					required: must, //必填
+
+					rangelength: '&lt;span class=&quot;warning1&quot;&gt;6到20个字符&lt;/span&gt;'
+				},
+
+				repeat_pwd: {
+
+					required: must, //必填
+
+					rangelength: '&lt;span class=&quot;warning1&quot;&gt;6到20个字符&lt;/span&gt;',
+
+					equalTo: '&lt;span class=&quot;warning1&quot;&gt;两次输入密码不一致&lt;/span&gt;'
+
+				},
+
+				phone: { //身份证
+
+					required: must
+
+				},
+
+				id_card: { //身份证
+
+					required: must
+				},
+
+				bank_card: { //银行卡
+
+					required: must
+
+				},
+
+				date: { //日期：yy-mm-dd
+
+					required: must //必填
+
+				},
+
+				url: { //网址
+
+					required: must, //必填
+
+					url: '&lt;span class=&quot;warning1&quot;&gt;网址无效&lt;/span&gt;'
+				},
+
+				topic: {
+
+					required: '&lt;span class=&quot;warning3&quot;&gt;必选&lt;/span&gt;', //必填
+
+					minlength: '&lt;span class=&quot;warning1&quot;&gt;至少选2项&lt;/span&gt;'
+
+				},
+
+				radio: { //单选
+
+					required: '&lt;span class=&quot;warning3&quot;&gt;必选&lt;/span&gt;'
+				},
+
+				txtArea: {
+
+					required: '&lt;span class=&quot;warning3&quot;&gt;不能为空，最多100个汉字。&lt;/span&gt;', //必填
+
+					maxlength: '&lt;span class=&quot;warning1&quot;&gt;超出字数限制&lt;/span&gt;'
+				},
+
+				fileImg: {
+
+					required: '&lt;span class=&quot;warning3&quot;&gt;须上传图片&lt;/span'
+				}
+			}
+		})
+
+		/*验证方法扩展*/
+
+		/*下拉必选*/
+		jQuery.validator.addMethod(&quot;select&quot;, function(value, element) {
+
+			if (value != '') {
+
+				return true
+			}
+		}, '&lt;span class=&quot;warning1&quot;&gt;一定要选择一项&lt;/span&gt;');
+
+		/*身份证*/
+		jQuery.validator.addMethod(&quot;id_card&quot;, function(value, element) {
+
+			return this.optional(element) || (/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/.test(value) || /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value))
+
+		}, '&lt;span class=&quot;warning1&quot;&gt;身份证号码无效&lt;/span&gt;');
+
+		/*银行卡*/
+		jQuery.validator.addMethod(&quot;bank_card&quot;, function(value, element) {
+
+			var _val = value.split('-').join('');
+
+			if (/^\d{19}$/g.test(_val)) {
+
+				return true
+			}
+		}, '&lt;span class=&quot;warning1&quot;&gt;银行卡输入格式错误&lt;/span&gt;');
+
+		/*中国移动段手机号*/
+		jQuery.validator.addMethod(&quot;phone&quot;, function(value, element) {
+
+			var _re = /^1(3[4-9]|5[012789]|8[78])\d{8}$/;
+
+			return this.optional(element) || (_re.test(value));
+
+		}, '&lt;span class=&quot;warning1&quot;&gt;手机号输入有误&lt;/span&gt;');
+
+		/*日期格式化方法*/
+		jQuery.validator.addMethod(&quot;dateRule&quot;, function(value, element) {
+
+			var matches = /(\d{4})[-\/](\d{2})[-\/](\d{2})/.exec(value);
+			if (matches == null) return this.optional(element) || false;
+			return this.optional(element) || true;
+
+		}, '&lt;span class=&quot;warning1&quot;&gt;日期输入格式错误，正确格式为:yy-mm-dd，如2010-03-28&lt;/span&gt;');
+
+
+		/*密码安全等级：弱、中、强*/
+
+		$(&quot;#level_pwd&quot;).on({
+
+			&quot;keyup&quot;: function() {
+
+				var password_val = $.trim($(this).val());
+
+				var len = password_val.length;
+
+				/*表示密码强度为弱（只是数字或只是字母的)*/
+				if (len &gt;= 6 &amp;&amp; (/^[0-9]+$/g.test(password_val) || /^[a-zA-Z]+$/g.test(password_val) || /^[^0-9a-zA-Z]+$/g.test(password_val))) {
+
+					pw_letter.addClass(&quot;pw-letter-low&quot;);
+					pw_letter.removeClass(&quot;pw-letter-mid&quot;);
+					pw_letter.removeClass(&quot;pw-letter-high&quot;);
+				}
+				/*表示密码强度为强（必须是数字+字母+字符，并且密码位数在15～20位)*/
+				else if (len &gt;= 15 &amp;&amp; (/[0-9]/g.test(password_val) &amp;&amp; /\w/.test(password_val) &amp;&amp; /[!,@#,$,%,^,&amp;,*,?,_,~,-,(,)]/.test(password_val))) {
+
+					pw_letter.addClass(&quot;pw-letter-high&quot;);
+					pw_letter.removeClass(&quot;pw-letter-low&quot;);
+					pw_letter.removeClass(&quot;pw-letter-mid&quot;);
+				}
+				/*表示密码强度为中(至少是数字和字母或字符相结合的)*/
+				else if (len &gt;= 6 &amp;&amp; ((/[0-9]/g.test(password_val) &amp;&amp; /[a-zA-Z]/g.test(password_val)) || (/[0-9]/g.test(password_val) &amp;&amp; /[^0-9a-zA-Z]/g.test(password_val)) || (/[a-zA-Z]/g.test(password_val) &amp;&amp; /[^0-9a-zA-Z]/g.test(password_val)))) {
+					pw_letter.addClass(&quot;pw-letter-mid&quot;);
+					pw_letter.removeClass(&quot;pw-letter-low&quot;);
+					pw_letter.removeClass(&quot;pw-letter-high&quot;);
+				} else {
+					pw_letter.removeClass(&quot;pw-letter-low&quot;);
+					pw_letter.removeClass(&quot;pw-letter-mid&quot;);
+					pw_letter.removeClass(&quot;pw-letter-high&quot;);
+				}
+			}
+		})
+
+		/*银行卡输入每4位数字加中线*/
+
+		$('#bank_card').on({
+
+			keyup: function() {
+
+				var obj = $(this);
+
+				var str = $.trim(obj.val());
+
+				str = str.replace(/\s/g, '-').replace(/(\d{4})(?=\d)/g, &quot;$1 &quot;);
+
+				obj.val(str);
+			}
+
+		})
+
+
+		$('#isValid').click(function(e) {
+
+			if ($(&quot;#validForm&quot;).validate().form()) { //表单客户端验证是否通过
+
+				alert(&quot;客户端验证通过！&quot;);
+
+			}
+
+		})
+
+	})
+&lt;/script&gt;</pre>
+	
+	<script src="./js/ui/su_validation.js"></script>
+	<script>
+		$(function() {
+
+			var must = '<span class="warning3">必填</span>'; //设置必填HTML
+
+			var pw_letter = $('#pw_letter'); //安全等级对象
+
+			/*表单验证*/
+
+			$("#validForm").validate({
+
+				//errorElement: "em",
+
+				rules: { //规则
+
+					select: { //下拉必选
+
+						select: true
+
+					},
+
+					user: {
+
+						required: true, //必填
+
+						rangelength: [6, 20] //6到20个字符
+
+					},
+
+					email: {
+
+						required: true, //必填
+
+						email: true //邮箱验证开启
+					},
+
+					password: {
+
+						required: true, //必填
+
+						rangelength: [6, 20] //6到20个字符
+
+					},
+
+					repeat_pwd: {
+
+						required: true, //必填
+
+						rangelength: [6, 20],
+
+						equalTo: "#level_pwd" //是否两次输入一致
+
+					},
+
+					phone: { //移动手机
+
+						required: true, //必填
+
+						phone: true //中国移动运营商手机号验证开启
+
+					},
+
+					id_card: { //身份证
+
+						required: true, //必填
+
+						id_card: true //中国移动运营商手机号验证开启
+
+					},
+
+					bank_card: { //银行卡
+
+						required: true, //必填
+
+						bank_card: true
+
+					},
+
+					date: { //日期：yy-mm-dd
+
+						required: true, //必填
+
+						dateRule: true //开启验证
+					},
+
+					url: { //网址
+
+						required: true, //必填
+
+						url: true //开启验证
+					},
+
+					topic: { //复选框
+
+						required: true, //必选
+
+						minlength: 2
+
+					},
+
+					radio: { //单选
+
+						required: true //必填
+					},
+
+					txtArea: { //说明
+
+						required: true, //必填
+
+						maxlength: 200
+
+					},
+
+					fileImg: {
+
+						required: true
+					}
+				},
+
+				messages: { //信息反馈
+
+					user: {
+
+						required: must,
+
+						rangelength: '<span class="warning1">6到20个字符</span>'
+					},
+
+					email: {
+
+						required: must, //必填
+
+						email: '<span class="warning1">邮箱格式不正确</span>'
+					},
+
+					password: {
+
+						required: must, //必填
+
+						rangelength: '<span class="warning1">6到20个字符</span>'
+					},
+
+					repeat_pwd: {
+
+						required: must, //必填
+
+						rangelength: '<span class="warning1">6到20个字符</span>',
+
+						equalTo: '<span class="warning1">两次输入密码不一致</span>'
+
+					},
+
+					phone: { //身份证
+
+						required: must
+
+					},
+
+					id_card: { //身份证
+
+						required: must
+					},
+
+					bank_card: { //银行卡
+
+						required: must
+
+					},
+
+					date: { //日期：yy-mm-dd
+
+						required: must //必填
+
+					},
+
+					url: { //网址
+
+						required: must, //必填
+
+						url: '<span class="warning1">网址无效</span>'
+					},
+
+					topic: {
+
+						required: '<span class="warning3">必选</span>', //必填
+
+						minlength: '<span class="warning1">至少选2项</span>'
+
+					},
+
+					radio: { //单选
+
+						required: '<span class="warning3">必选</span>'
+					},
+
+					txtArea: {
+
+						required: '<span class="warning3">不能为空，最多100个汉字。</span>', //必填
+
+						maxlength: '<span class="warning1">超出字数限制</span>'
+					},
+
+					fileImg: {
+
+						required: '<span class="warning3">须上传图片</span'
+					}
+				}
+			})
+
+			/*验证方法扩展*/
+
+			/*下拉必选*/
+			jQuery.validator.addMethod("select", function(value, element) {
+
+				if (value != '') {
+
+					return true
+				}
+			}, '<span class="warning1">一定要选择一项</span>');
+
+			/*身份证*/
+			jQuery.validator.addMethod("id_card", function(value, element) {
+
+				return this.optional(element) || (/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/.test(value) || /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value))
+
+			}, '<span class="warning1">身份证号码无效</span>');
+
+			/*银行卡*/
+			jQuery.validator.addMethod("bank_card", function(value, element) {
+
+				var _val = value.split('-').join('');
+
+				if (/^\d{19}$/g.test(_val)) {
+
+					return true
+				}
+			}, '<span class="warning1">银行卡输入格式错误</span>');
+
+			/*中国移动段手机号*/
+			jQuery.validator.addMethod("phone", function(value, element) {
+
+				var _re = /^1(3[4-9]|5[012789]|8[78])\d{8}$/;
+
+				return this.optional(element) || (_re.test(value));
+
+			}, '<span class="warning1">手机号输入有误</span>');
+
+			/*日期格式化方法*/
+			jQuery.validator.addMethod("dateRule", function(value, element) {
+
+				var matches = /(\d{4})[-\/](\d{2})[-\/](\d{2})/.exec(value);
+				if (matches == null) return this.optional(element) || false;
+				return this.optional(element) || true;
+
+			}, '<span class="warning1">日期输入格式错误，正确格式为:yy-mm-dd，如2010-03-28</span>');
+
+
+			/*密码安全等级：弱、中、强*/
+
+			$("#level_pwd").on({
+
+				"keyup": function() {
+
+					var password_val = $.trim($(this).val());
+
+					var len = password_val.length;
+
+					/*表示密码强度为弱（只是数字或只是字母的)*/
+					if (len >= 6 && (/^[0-9]+$/g.test(password_val) || /^[a-zA-Z]+$/g.test(password_val) || /^[^0-9a-zA-Z]+$/g.test(password_val))) {
+
+						pw_letter.addClass("pw-letter-low");
+						pw_letter.removeClass("pw-letter-mid");
+						pw_letter.removeClass("pw-letter-high");
+					}
+					/*表示密码强度为强（必须是数字+字母+字符，并且密码位数在15～20位)*/
+					else if (len >= 15 && (/[0-9]/g.test(password_val) && /\w/.test(password_val) && /[!,@#,$,%,^,&,*,?,_,~,-,(,)]/.test(password_val))) {
+
+						pw_letter.addClass("pw-letter-high");
+						pw_letter.removeClass("pw-letter-low");
+						pw_letter.removeClass("pw-letter-mid");
+					}
+					/*表示密码强度为中(至少是数字和字母或字符相结合的)*/
+					else if (len >= 6 && ((/[0-9]/g.test(password_val) && /[a-zA-Z]/g.test(password_val)) || (/[0-9]/g.test(password_val) && /[^0-9a-zA-Z]/g.test(password_val)) || (/[a-zA-Z]/g.test(password_val) && /[^0-9a-zA-Z]/g.test(password_val)))) {
+						pw_letter.addClass("pw-letter-mid");
+						pw_letter.removeClass("pw-letter-low");
+						pw_letter.removeClass("pw-letter-high");
+					} else {
+						pw_letter.removeClass("pw-letter-low");
+						pw_letter.removeClass("pw-letter-mid");
+						pw_letter.removeClass("pw-letter-high");
+					}
+				}
+			})
+
+			/*银行卡输入每4位数字加中线*/
+
+			$('#bank_card').on({
+
+				keyup: function() {
+
+					var obj = $(this);
+
+					var str = $.trim(obj.val());
+
+					str = str.replace(/\s/g, '-').replace(/(\d{4})(?=\d)/g, "$1 ");
+
+					obj.val(str);
+				}
+
+			})
+
+
+			$('#isValid').click(function(e) {
+
+				if ($("#validForm").validate().form()) { //表单客户端验证是否通过
+
+					alert("客户端验证通过！");
+
+				}
+
+			})
+
+		})
+	</script>
+</body>
+
+</html>

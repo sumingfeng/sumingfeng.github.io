@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="content">
+		<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<th style="width:20%">编号</th>
+				<th>日期</th>
+			</tr>
+			<tbody id="list-content"></tbody>
+		</table>
+		<div class="pagination ui-page" id="pagination"></div><p>每页显示调试</p>
+	</div>
+	<p class="l-30 mt-20">HTML:</p>
+	<pre>&lt;table class=&quot;datatable&quot; width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+	&lt;tr&gt;
+		&lt;th style=&quot;width:20%&quot;&gt;编号&lt;/th&gt;
+		&lt;th&gt;日期&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tbody id=&quot;list-content&quot;&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;pagination ui-page&quot; id=&quot;pagination&quot;&gt;&lt;/div&gt;</pre>
+	<p class="l-30 mt-20">CSS:</p>
+	<pre>/*ui-page*/
+
+.ui-page {
+	margin: 10px 0;
+}
+.ui-page ul {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	margin-left: 0;
+	margin-bottom: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.ui-page ul>li {
+	display: inline;
+}
+.ui-page ul>li>a,
+.ui-page ul>li>span {
+	float: left;
+	padding: 4px 12px;
+	line-height: 18px;
+	text-decoration: none;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	border-left-width: 0;
+	color: #666
+}
+.ui-page ul>li>a:hover,
+.ui-page ul>.active>a,
+.ui-page ul>.active>span {
+	background-color: #f5f5f5;
+}
+.ui-page ul>.active>a,
+.ui-page ul>.active>span {
+	color: #999999;
+	cursor: default;
+}
+.ui-page ul>.disabled>span,
+.ui-page ul>.disabled>a,
+.ui-page ul>.disabled>a:hover {
+	color: #999999;
+	background-color: transparent;
+	cursor: default;
+}
+.ui-page ul>li:first-child>a,
+.ui-page ul>li:first-child>span {
+	border-left-width: 1px;
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+}
+.ui-page ul>li:last-child>a,
+.ui-page ul>li:last-child>span {
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+}
+.ui-page-centered {
+	text-align: center;
+}
+.ui-page-right {
+	text-align: right;
+}
+.ui-page-large ul>li>a,
+.ui-page-large ul>li>span {
+	padding: 11px 19px;
+	font-size: 15px;
+}
+.ui-page-large ul>li:first-child>a,
+.ui-page-large ul>li:first-child>span {
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-bottom-left-radius: 6px;
+}
+.ui-page-large ul>li:last-child>a,
+.ui-page-large ul>li:last-child>span {
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	border-bottom-right-radius: 6px;
+}
+.ui-page-mini ul>li:first-child>a,
+.ui-page-small ul>li:first-child>a,
+.ui-page-mini ul>li:first-child>span,
+.ui-page-small ul>li:first-child>span {
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	border-top-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-left-radius: 3px;
+}
+.ui-page-mini ul>li:last-child>a,
+.ui-page-small ul>li:last-child>a,
+.ui-page-mini ul>li:last-child>span,
+.ui-page-small ul>li:last-child>span {
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-bottom-right-radius: 3px;
+}
+.ui-page-small ul>li>a,
+.ui-page-small ul>li>span {
+	padding: 2px 10px;
+	font-size: 10.2px;
+}
+.ui-page-mini ul>li>a,
+.ui-page-mini ul>li>span {
+	padding: 1px 6px;
+	font-size: 9px;
+}</pre>
+	<p class="l-30 mt-20">JS:</p>
+	<pre>&lt;script src=&quot;"../js/ui/su_pagination.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;"../js/ui/su_tableStyle.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	//模拟数据
+	var arr = [];
+	for (var i = 0; i &lt; 100; i++) {
+		var date = new Date();
+		arr.push({
+			number: i + 1,
+			_date: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+		});
+	}
+
+	$(function() {
+		//渲染分页
+		$('#pagination').pagination(arr.length, {
+			current_page: 0, //当前页
+			items_per_page: 10, //每页显示的条目数
+			num_display_entries: 5, //每5页展示、分页条目数
+			callback: function(page_id) {
+				//模拟ajax去后端读取页数，获取数据并渲染列表的过程
+				$('#list-content').html('');
+				var dataHTML = '';
+				for (var i = 0; i &lt; 10; i++) {
+					dataHTML += '&lt;tr&gt;&lt;td&gt;' + arr[page_id * 10 + i].number + '&lt;/td&gt;&lt;td&gt;' + arr[page_id * 10 + i]._date + '&lt;/td&gt;&lt;/tr&gt;'
+				}
+				$('#list-content').append(dataHTML);
+
+				$('.datatable').su_tableStyle({
+					odd: &quot;tr-odd&quot;
+				});
+			},
+			load_first_page: true,
+			prev_text: '上一页',
+			next_text: '下一页'
+		});
+
+	});
+&lt;/script&gt;</pre>
+	<script src="./js/ui/su_pagination.js"></script>
+	<script src="./js/ui/su_tableStyle.js"></script>
+	<script>
+		//模拟数据
+		var arr = [];
+		for (var i = 0; i < 100; i++) {
+			var date = new Date();
+			arr.push({
+				number: i + 1,
+				_date: date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+			});
+		}
+		var ss = null;
+		$(function() {
+			//渲染分页
+			$('#pagination').pagination(0, {
+				ss = arr.length;
+				current_page: 0, //当前页
+				items_per_page: 10, //每页显示的条目数
+				num_display_entries: 5, //每5页展示、分页条目数
+				callback: function(page_id) {
+				
+					//模拟ajax去后端读取页数，获取数据并渲染列表的过程
+					$('#list-content').html('');
+					var dataHTML = '';
+					for (var i = 0; i < 10; i++) {
+						dataHTML += '<tr><td>' + arr[page_id * 10 + i].number + '</td><td>' + arr[page_id * 10 + i]._date + '</td></tr>'
+					}
+					$('#list-content').append(dataHTML);
+
+					$('.datatable').su_tableStyle({
+						odd: "tr-odd"
+					});
+				},
+				load_first_page: true,
+				
+				prev_text: '上一页',
+				
+				next_text: '下一页'
+			});
+
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div id="content">
+		
+		<a href="http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/fstore/docs/fstore文件存储系统API接口文档.doc" target="_blank" style="display:none">http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/fstore/docs/fstore文件存储系统API接口文档.doc</a>
+		<p class="bold">文件服务</p>
+  		<hr>
+  		<p class="l-30">项目名：文件服务</p>
+		<p class="l-30">项目路径：http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/m-fstore/</p>
+		
+		<p class="bold mt-20">一、fstore客户端接口列表</p>
+		<hr>
+
+<table  cellpadding="0" class="datatable">
+  <tr>
+    <td>
+        <strong>接口签名 </strong> </td>
+    <td><p align="left"><strong>接口简述 </strong></p></td>
+  </tr>
+  <tr>
+    <td><p align="left">int setMasterIP(String ipaddr); </p></td>
+    <td><p align="left">改变master ip地址，ip地址格式为 ip:port[:tfsarea] </p></td>
+  </tr>
+  <tr>
+    <td><p align="left">String newTfsFileName(String suffix); </p></td>
+    <td><p align="left">生成一个新的tfs文件名，如果失败，返回null </p></td>
+  </tr>
+  <tr>
+    <td><p align="left">boolean fetchFile(String tfsFileName, String tfsSuffix,    String localFileName); </p></td>
+    <td><p align="left">读取一个tfs的文件到本地文件 </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">boolean fetchFile(String tfsFileName, String tfsSuffix,    !OutputStream output); </p></td>
+    <td><p align="left">读取一个tfs的文件到输出流 </p></td>
+  </tr>
+  <tr>
+    <td><p align="left">String saveFile(String localFileName, String    tfsFileName, String tfsSuffix); </p></td>
+    <td><p align="left">保存一个本地文件到TFS，失败返回null </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">String saveFile(String mainName, String suffix, byte[]    data, int offset, int length); </p></td>
+    <td><p align="left">保存一个字节流data到TFS </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">String saveFile(byte[] data, String mainName, String    suffix); </p></td>
+    <td><p align="left">保存一个字节流data到TFS </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">FileInfo statFile(String tfsFileName, String tfsSuffix) </p></td>
+    <td><p align="left">stat一个tfs文件，成功返回FileInfo， 失败返回nul </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">boolean unlinkFile(String tfsFileName, String    tfsSuffix); </p></td>
+    <td><p align="left">删除一个文件 </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">boolean hideFile(String fileName, String tfsSuffix, int    option); </p></td>
+    <td><p align="left">临时隐藏/反隐藏一个文件 </p></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">String saveLargeFile(String localFileName, String    tfsFileName, String tfsSuffix) </p></td>
+    <td><p align="left">保存一个大文件到tfs，成功返回tfs文件名(L开头），失败返回null </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">String saveLargeFile(byte[] data, String tfsFileName,    String tfsSuffix，String key); </p></td>
+    <td><p align="left">保存一个字节流data到tfs，成功返回tfs文件名，失败返回null </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">String saveLargeFile(String mainName, String suffix,    byte[] data, int offset, int length, String key); </p></td>
+    <td><p align="left">保存一个字节流data到tfs，成功返回tfs文件名，失败返回null </p></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">int openReadFile(String tfsFileName, String tfsSuffix) </p></td>
+    <td><p align="left">打开一个tfs文件读，成功返回大于0的fd，失败返回负值 </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">int readFile(int fd, byte[] data, int offset, int    length) </p></td>
+    <td><p align="left">读取不超过length大小的数据到一个字符数组，成功返回读取到的数据长度，失败返回负值。 </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">int readFile(int fd, long fileOffset, byte[] data, int    offset, int length) </p></td>
+    <td><p align="left">从文件的fileoffset开始，读取不超过length大小的数据到一个字符数组，成功返回读取到的数据长度，失败返回负值。 </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">int openWriteFile(String tfsFileName, String tfsSuffix,    String key) </p></td>
+    <td><p align="left">打开一个tfs文件写，成功返回大于0的fd，失败返回负值 </p></td>
+  </tr>
+  <tr>
+    <td>
+        <p align="left">int writeFile(int fd, byte[] data, int offset, int    length) </p></td>
+    <td><p align="left">写data到tfs文件，成功返回写入的长度，失败返回负值 </p></td>
+  </tr>
+  <tr>
+    <td><p align="left">String closeFile(int fd) </p></td>
+    <td><p align="left">关闭tfs文件句柄，释放相关资源。成功返回最后tfs文件名，失败返回null </p></td>
+  </tr>
+  <tr>
+    <td><p align="left">void destroy(); </p></td>
+    <td><p align="left">销毁占用的资源 (主进程调用一次） </p></td>
+  </tr>
+</table>
+<p class="bold mt-20">二、接口函数介绍</p>
+		<hr>
+<p align="left">
+    
+
+    <strong>1</strong><strong>、fetchFile</strong><br />
+  函数：boolean fetchFile(String tfsFileName, String tfsSuffix, String  localFileName);<br />
+  boolean fetchFile(String tfsFileName, String tfsSuffix, !OutputStream  output);<br />
+  描述：从tfs上取一个文件存到本地，前一个函数将数据存到本地文件，后一个函数将数据存到输出流中。<br />
+  参数： <br />
+  tfsFileName 需要读取的tfs文件名。<br />
+  tfsSuffix 需要读取的文件名后缀，需要和存入时后缀相同。<br />
+  localFileName 本地文件名。<br />
+  Output 数据流。 <br />
+  返回：读操作成功返回true，读操作失败返回false。<br />
+  示例： <br />
+  String tmpfile = &quot;tmp&quot;;<br />
+  String tfsname = T16FXXXd4aXXaZaWbX ;<br />
+  boolean ret = fstoreService.fetchFile(tfsname, null,  tmpfile);<br />
+  ByteArrayOutputStream output = new  ByteArrayOutputStream();<br />
+  String tfsname = T16FXXXd4aXXaZaWbX ;<br />
+  boolean ret = fstoreService.fetchFile(tfsname, null,  output);<br /><br />
+  <strong>2</strong><strong>、saveFile</strong><br />
+  函数：String saveFile(String localFileName, String tfsFileName, String  tfsSuffix); <br />
+  String saveFile(String mainName, String suffix, byte[] data, int offset,  int length); <br />
+  描述：将本地文件或数据存到TFS上，前一个函数将本地文件存入TFS上，后一个函数将本地byte数组存到TFS上。<br />
+  参数： <br />
+  localFileName 本地文件名。<br />
+  tfsFileName 给文件指定一个TFS文件名，通常建议设为NULL。<br />
+  tfsSuffix 任意字符串，可设为NULL。<br />
+  mainName 与前一个函数的参数tfsFileName相同，给文件指定一个TFS文件名，通常建议设为NULL。<br />
+  suffix 与前一个函数的参数tfsSuffix相同，任意字符串，可设为NULL。<br />
+  data 要写入的byte数组。<br />
+  offset 要写入的数据在data中的位置。<br />
+  length 要写入的数据长度。 <br />
+  返回：TFS文件名。<br />
+  示例： <br />
+  String localfile = “test.jpg”;<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  &quot;.jpg &quot;);<br />
+  String data_string = &quot;this is a test.&quot;;<br />
+  String tfsname = fstoreService.saveFile(data_string.getBytes(),  null, null);<br /><br />
+  <strong>3</strong><strong>、unlinkFile</strong><br />
+  函数：boolean unlinkFile(String tfsFileName, String tfsSuffix) <br />
+  描述：在tfs上删除一个文件。<br />
+  参数： <br />
+  tfsFileName 需要读取的tfs文件名。<br />
+  tfsSuffix 需要读取的文件名后缀，需要和存入时后缀相同。 <br />
+  返回：删除成功返回true，删除失败返回false。<br />
+  示例： <br />
+  String tfsname = T16FXXXd4aXXaZaWbX ;<br />
+  String suffix = “.jpg”;<br />
+  boolean ret = fstoreService.unlinkFile(tfsname, suffix);<br /><br />
+  <strong>4</strong><strong>、hideFile</strong><br />
+  函数：boolean hideFile(String fileName, String tfsSuffix, int option); <br />
+  描述：临时隐藏/反隐藏一个文件。<br />
+  参数： <br />
+  tfsFileName 需要读取的tfs文件名。<br />
+  tfsSuffix 需要读取的文件名后缀，需要和存入时后缀相同。<br />
+  option 标识隐藏还是反隐藏，该值为1时表示隐藏，该值为0时表示反隐藏。 <br />
+  返回：操作成功返回true，操作失败返回false。 <br /><br />
+  <strong>5</strong><strong>、statFile</strong><br />
+  函数：FileInfo statFile(String tfsFileName, String tfsSuffix) <br />
+  描述：stat一个tfs文件。<br />
+  参数： <br />
+  tfsFileName 需要读取的tfs文件名。<br />
+  tfsSuffix 需要读取的文件名后缀，需要和存入时后缀相同。 <br />
+  返回：操作成功返回FileInfo，操作失败返回null。 <br />
+  FileInfo fileInfo  = fstoreService.statFile(name, null); [[BR]]<br />
+  System.out.println(&quot;file  status &quot; + fileInfo.getFlag());  // 文件的状态有0（正常）， 1（删除）， 4（隐藏）。[[BR]]
+  <p class="bold mt-20"> 三、常用功能使用 </p>
+  <hr>
+ 
+  <strong>1</strong><strong>、初始化java客户端 </strong><br />
+  参考配置文件spring-tfs.xml 、fstoreConfig.properties，使用依赖注入方式初始化实例。 <br />
+  <br />
+  <strong>2</strong><strong>、写文件 </strong><br />
+  可使用两个接口：<br />
+  String saveFile(String localFileName, String tfsFileName, String tfsSuffix); <br />
+  String saveFile(String mainName, String suffix, byte[] data, int offset, int  length); <br />
+  以第一个接口为例，使用方法如下： <br />
+  String localfile = “test.jpg”;<br />
+  //不传入suffix和tfsname<br />
+  void save_file_without_param ()<br />
+  {<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  null);<br />
+  System.out.println(&quot;save with no parameters &quot; +  tfsname);<br />
+  }<br />
+  //只传入suffix<br />
+  save_file_with_suffix()<br />
+  {<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  &quot;.jpg&quot;);<br />
+  System.out.println(&quot;save with suffix &quot; +  tfsname);<br />
+  }<br />
+  //只传入tfsname<br />
+  void save_file_with_tfsname()<br />
+  {<br />
+  String newtfsname = fstoreService.newTfsFileName(&quot;.jpg  &quot;);<br />
+  String tfsname = fstoreService.saveFile(localfile,  newtfsname, null);<br />
+  System.out.println(&quot;save with tfsname &quot; +  tfsname);<br />
+  }<br />
+  //同时传入suffix和tfsname<br />
+  void save_file_with_tfsname_suffix()<br />
+  {<br />
+  String newtfsname = fstoreService.newTfsFileName(&quot;.jpg  &quot;);<br />
+  String tfsname = fstoreService.saveFile(localfile,  newtfsname, “.jpg”);<br />
+  System.out.println(&quot;save with tfsname and suffix  &quot; + tfsname);<br />
+  }<br />
+  }<br />
+  以上采用了四种方法向TFS写入文件，但是不建议用第3种和第4种，因为这两种方式要与nameserver多一次交互，损失了效率。第二个函数的使用方法和第一个函数类似，不再赘述。 <br /><br />
+  <strong>3</strong><strong>、读文件 </strong><br />
+  可使用两个接口：<br />
+  boolean fetchFile(String tfsFileName, String tfsSuffix, String localFileName); <br />
+  boolean fetchFile(String tfsFileName, String tfsSuffix, !OutputStream output); <br />
+  以第一个接口为例，使用方法如下： <br />
+  String localfile = “test.jpg”;<br />
+  String tmpfile = &quot;tmp&quot;;<br />
+  //不带后缀名 <br />
+  void fetch _file_without_param ()<br />
+  {<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  null);<br />
+  System.out.println(&quot;fetch with no parameters &quot;  + tfsname);<br />
+  fstoreService.fetchFile(tfsname, null, tmpfile);<br />
+  }<br />
+  //带后缀名 <br />
+  void fetch_file_with_suffix()<br />
+  {<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  &quot;.jpg&quot;);<br />
+  System.out.println(&quot;save with suffix &quot; +  tfsname);<br />
+  fstoreService.fetchFile(tfsname, &quot;.jpg&quot;,  tmpfile);<br />
+  }<br />
+  //newtfsfilename后取文件名的方法，后缀要使用saveFile的后缀 <br />
+  void fetch _file_with_tfsname()<br />
+  {<br />
+  String newtfsname = fstoreService.newTfsFileName(&quot;.jpg  &quot;);<br />
+  String tfsname = fstoreService.saveFile(localfile,  newtfsname, null);<br />
+  System.out.println(&quot;save with tfsname &quot; +  tfsname);<br />
+  fstoreService.fetchFile(tfsname, null, tmpfile);<br />
+  }<br />
+  //用返回的tfsname和直接newtfsname得到的文件名两种方式取文件 <br />
+  void fetch _file_with_tfsname_suffix()<br />
+  {<br />
+  String newtfsname = fstoreService.newTfsFileName(&quot;.jpg  &quot;);<br />
+  String tfsname = fstoreService.saveFile(localfile,  newtfsname, “.jpg”);<br />
+  System.out.println(&quot;save with tfsname and suffix  &quot; + tfsname);<br />
+  String tmpfile1 = &quot;tmp1&quot;;<br />
+  fstoreService.fetchFile(tfsname, NULL, tmpfile1);<br />
+  String tmpfile2 = &quot;tmp2&quot;;<br />
+  fstoreService.fetchFile(newtfsname, “.jpg”, tmpfile2);<br />
+  }<br />
+  以上代码针对四种写文件的方式分别读取文件，在读文件时需注意两点：<br />
+  1．建议Fetchfile传入的tfsname以存入文件时返回的文件名为准，如果用newTfsFileName()的返回值来作为文件名，必须添加saveFile时候传入的后缀。<br />
+  2．后缀必须和存文件时输入的后缀一致，如果传入为null，那么fetchfile时suffix也应该会null，传入错误的后缀将无法找到正确的文件。 <br /><br />
+  <strong>4</strong><strong>、删除文件 </strong><br />
+  使用方法如下： <br />
+  String localfile = “test.jpg”;<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  null);<br />
+  fstoreService.unlinkFile(tfsname, null);<br />
+  以上代码时对删除文件的简单应用，其注意要点和读文件类似，不再赘述。 <br /><br />
+  <strong>5</strong><strong>、隐藏文件 </strong><br />
+  使用方法如下： <br />
+  String localfile = “test.jpg”;<br />
+  String tfsname = fstoreService.saveFile(localfile, null,  null);<br />
+  fstoreService.hideFile(tfsname, null, 0);<br />
+  fstoreService.hideFile(tfsname, null, 1);<br />
+  以上代码时对隐藏文件和反隐藏文件的简单应用，其注意要点和读文件类似，不再赘述。 <br /><br />
+  <strong>6</strong><strong>、写大文件 </strong><br />
+  tfs文件写大文件，为了断点续传，必须传入一个key参数，来标识此次大文件的写。一次写失败后，再次传入相同的key写，tfsclient会根据  key找到前一次已经写完成的部分重用。 为了确保key的唯一性，当前tfsclient接受的key必须是本地文件系统上存在的一个文件路径,该key文件的内容无所谓. key的唯一性请调用者自己负责。 <br />
+  1）一次写入。大文件现在不支持更新。所以文件名请传入null.<br />
+  <em>不需要传入key，默认使用localFileName作为key。<br />
+    String tfsName = saveLargeFile(localFileName, null, null);<br />
+    String tfsName = saveLargeFile(&quot;test write&quot;.getBytes(), null, null,  keyName);</em> <br />
+  2）多次写入。 <br />
+  int fd = openWriteFile(null, &quot;.dat&quot;, keyName);<br />
+  byte[] data = &quot;write data&quot;;<br />
+  writeFile(fd, data, data.length);<br />
+  writeFile(fd, data, data.length);<br />
+  <em>close file</em><em>， 获得最后tfs文件名。即使写失败，也必须掉用close<br />
+    String name = closeFile(fd);</em> <br /><br />
+  <strong>7</strong><strong>、读大文件 </strong><br />
+  1）一次读取直接使用fetchFile接口即可，会根据文件名判断是大文件。 <br />
+  2）多次读取<br />
+  int fd = openReadFile(&quot;L16FXXXd4aXXaZaWbX&quot;, null);<br />
+  byte[] data = new byte[1024000];<br />
+  readFile(fd, data, data.length);<br />
+  closeFile(fd); <br />
+  对于上述方式保存的TFS文件，同样的，可以用TFS返回的tfsName来访问，小文件以T开头，大文件以L开头。假设saveFile返回的文件名是 T16FXXXd4aXXaZaWbX，而newTfsFileName返回的文件名是T16FXXXdXXXXXXXXXX，传入的suffix是 any_suffix_you_want。<br />
+  T16FXXXd4aXXaZaWbX <br />
+  T16FXXXd4aXXaZaWbX.any_suffix_you_want <br />
+  T16FXXXdXXXXXXXXXX.any_suffix_you_want <br />
+  这三种文件名形式都是合法的。 <br /><br />
+  <strong>8</strong><strong>、http方式访问图片文件 </strong><br />
+  上传图片时未指定后缀名： <br />
+  http://192.168.0.11/v1/1/T1TRxTByZT1RCvBVdK<br />
+  上传图片时指定后缀名为.jpg： <br />
+  http://192.168.0.11/v1/1/T1TRxTByZT1RCvBVdK.jpg</p>
+	</div>
+<script src="../js/ui/su_tableStyle.js"></script>
+<script>
+	
+	$(function(){
+		$(".datatable").su_tableStyle();
+	})
+</script>	
+</body>
+
+</html>

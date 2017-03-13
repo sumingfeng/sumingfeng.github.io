@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="content">
+		<p class="bold">代码格式</p>
+		<hr>
+		<ol>
+			<li class="l-30">1.	html中外部脚本引入尽量放在尾部。</li>
+			<li class="l-30">2.	编码统一采用utf-8。</li>
+			<li class="l-30">3.	一个html文件中尽量只出现一个&lt;script&gt;代码块，所有代码块用
+			<pre>(function(){
+	//代码
+})();</pre>
+				包裹，可减少全局污染。</li>
+			<li class="l-30">4.	JS代码如果只针对特定HTML可以写在页面里，使用率高的代码块可以考虑写入公共JS文件调用。</li>
+			<li class="l-30">5.	程序块采用缩进风格编写，缩进采用4个空格，避免使用tab缩进以免各编辑器显示不一致。</li>
+			<li class="l-30">6.	避免多出额外的,(逗号)，如:
+				<pre>
+var arr = [1,2,3,];
+var list = {
+	a:3,
+	b:5,
+};</pre>最后的逗号多余，应删除，分别改为：
+			<pre>
+var arr = [1,2,3];
+var list = {
+	a:3,
+	b:5
+};</pre>这些错误一定要仔细，避免ie中报“缺少字符串,标识符或数字”的BUG。
+			</li>
+			<li class="l-30">7.	不要吝啬你的注释。当代码块更新时，注释也要对应更新。</li>
+		</ol>
+		<p class="bold mt-20">命名规则</p>
+		<hr>
+		<ol>
+			<li class="l-30">1.	变量名应由26个大小写字母(A..Z,a..z)，10个数字(0..9)，和_(下划线)组成。避免使用国际化字符(如中文)。注意：JS是区分大小写的。</li>
+			<li class="l-30">2.	变量名以字母、下划线 _ 或美元符号 $ 开头，允许名称中包含字母、数字、下划线 _ 和美元符号 $ 。</li>
+			<li class="l-30">3.	变量名尽量采用有意义的英文单词或缩写命名，不要用拼音。</li>
+			<li class="l-30">4.	采用首字母小写，其它单词首字母大写的驼峰式命名，如userName,arrayIndex。</li>
+			<li class="l-30">5.	变量、参数、成员变量、函数等名称均以小写字母开头，构造器的名称以大写字母开头。</li>
+			<li class="l-30">6.	全局变量或变量名为特定属性名时应该全部大写 (Javascript没有宏或者常量,所以不会因此造成误会) 。</li>
+			<li class="l-30">7.	下划线'_'开头的变量一般习惯于标识私有/局部成员。而美元符号'$'开头的变量习惯于标识系统相关，比如系统进程等。应避免用下划线'_'或美元符号'$'来命名标识符。</li>
+			<li class="l-30">8.	函数命名必须能够体现函数的功能。</li>
+			<li class="l-30">9.各种页面对象在变量命名时可以考虑使用以下对应前缀：</li>
+			<pre>text 输入框: txt
+button 按钮：btn
+select 下拉选择框：sel
+option 项: opt
+form 表单：frm
+hidden 表单项：hdn
+窗口对象：win
+文档对象：doc
+</pre>
+		</ol>
+	</div>
+</body>
+</html>

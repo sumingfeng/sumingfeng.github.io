@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="content">
+		
+
+		<form action="" class="ui-form">
+			<p>多个带下拉框的年月选择，带清除按钮</p><br>
+			<input type="text" class="ui-input date" readonly="readonly"><br><br>
+			<input type="text" class="ui-input date" readonly="readonly"><br><br>
+			<input type="text" class="ui-input date" readonly="readonly"><br><br>
+			<input type="text" class="ui-input date" readonly="readonly"><br><br>
+			<input type="text" class="ui-input date" readonly="readonly"><br><br>
+		</form>
+		<p class="l-30 mt-20">HTML:</p>
+		<pre>&lt;form action=&quot;&quot; class=&quot;ui-form&quot;&gt;
+		&lt;p&gt;多个带下拉框的年月选择，带清除按钮&lt;/p&gt;
+		&lt;br&gt;
+		&lt;input type=&quot;text&quot; class=&quot;ui-input date&quot; readonly=&quot;readonly&quot;&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;input type=&quot;text&quot; class=&quot;ui-input date&quot; readonly=&quot;readonly&quot;&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;input type=&quot;text&quot; class=&quot;ui-input date&quot; readonly=&quot;readonly&quot;&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;input type=&quot;text&quot; class=&quot;ui-input date&quot; readonly=&quot;readonly&quot;&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+		&lt;input type=&quot;text&quot; class=&quot;ui-input date&quot; readonly=&quot;readonly&quot;&gt;
+		&lt;br&gt;
+		&lt;br&gt;
+	&lt;/form&gt;</pre>
+		<p class="l-30 mt-20">JS:</p>
+		<pre>&lt;script src=&quot;"../js/ui/su_datePic.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+
+		$(&quot;.date&quot;).datepicker({
+
+			showButtonPanel: true,
+
+			changeMonth: true,
+
+			changeYear: true,
+
+			beforeShow: function(input, inst) {
+				datepicker_CurrentInput = input;
+			}
+
+		}).datepicker(&quot;setDate&quot;, &quot;0&quot;);
+
+		/*清空*/
+		$(&quot;.ui-datepicker-close&quot;).live(&quot;click&quot;, function() {
+			datepicker_CurrentInput.value = &quot;&quot;;
+		});
+	})
+&lt;/script&gt;</pre>
+		<p class="l-30 mt-20">CSS:</p>
+		<pre>/*date*/
+
+.ui-datepicker{background:#fff;border:1px solid #999}
+.ui-datepicker thead tr th{background-color:#ececec}
+.ui-datepicker-today a{background:url(../images/ui/date.png) no-repeat -3px -48px;width:24px;height:24px;overflow:hidden;color:#fff}
+.ui-datepicker .ui-state-default{color:#005ead;font-weight:700;font-family:Verdana}
+.ui-datepicker{width:20em;padding:.2em .2em 0;display:none;background:#fff}
+.ui-datepicker .ui-datepicker-header{position:relative;padding:.2em 0;background:#004fb8;color:#fff;margin-bottom:5px}
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{background:url(../images/ui/date.png) no-repeat 0 0;width:21px;height:21px;overflow:hidden;display:block;cursor:pointer}
+.ui-datepicker .ui-datepicker-prev{background-position:0 0}
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{position:absolute;top:2px}
+.ui-datepicker .ui-datepicker-prev-hover,.ui-datepicker .ui-datepicker-next-hover{background:url(../images/ui/date.png) no-repeat;width:21px;height:21px;overflow:hidden;display:block;cursor:pointer}
+.ui-datepicker .ui-datepicker-prev-hover{background-position:0 -22px}
+.ui-datepicker .ui-datepicker-prev{left:2px}
+.ui-datepicker .ui-datepicker-next{right:2px;background-position:-22px 0}
+.ui-datepicker .ui-datepicker-prev-hover{background-position:0 -22px}
+.ui-datepicker .ui-datepicker-next-hover{background-position:-22px -22px}
+.ui-datepicker .ui-datepicker-prev span,.ui-datepicker .ui-datepicker-next span{display:none;position:absolute;left:50%;margin-left:-8px;top:50%;margin-top:-8px}
+.ui-datepicker .ui-datepicker-title{margin:0 2.3em;line-height:1.8em;text-align:center}
+.ui-datepicker .ui-datepicker-title select{font-size:1em;margin:1px 0}
+.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year{width:60px}
+.ui-datepicker table{width:100%;font-size:.9em;border-collapse:collapse;margin:0 0 .4em}
+.ui-datepicker th{padding:.2em .3em;text-align:center;font-weight:normal;border:0}
+.ui-datepicker td{border:0;padding:3px}
+.ui-datepicker td span,.ui-datepicker td a{display:block;width:24px;height:24px;overflow:hidden;text-align:center;text-decoration:none;color:#999;line-height:24px;overflow:hidden}
+.ui-datepicker .ui-datepicker-buttonpane{background-image:none;margin:.7em 0 0 0;padding:0 .2em;border-left:0;border-right:0;border-bottom:0}
+.ui-datepicker .ui-datepicker-buttonpane button{float:right;margin:.5em .2em .4em;cursor:pointer;padding:.2em .6em .3em .6em;width:auto;overflow:visible}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current{float:left}
+.ui-datepicker.ui-datepicker-multi{width:auto}
+.ui-datepicker-multi .ui-datepicker-group{float:left}
+.ui-datepicker-multi .ui-datepicker-group table{width:95%;margin:0 auto .4em}
+.ui-datepicker-multi-2 .ui-datepicker-group{width:50%}
+.ui-datepicker-multi-3 .ui-datepicker-group{width:33.3%}
+.ui-datepicker-multi-4 .ui-datepicker-group{width:25%}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header{border-left-width:0}
+.ui-datepicker-multi .ui-datepicker-buttonpane{clear:left}
+.ui-datepicker-row-break{clear:both;width:100%;font-size:0}
+.ui-datepicker-rtl{direction:rtl}
+.ui-datepicker-rtl .ui-datepicker-prev{right:2px;left:auto}
+.ui-datepicker-rtl .ui-datepicker-next{left:2px;right:auto}
+.ui-datepicker-rtl .ui-datepicker-prev:hover{right:1px;left:auto}
+.ui-datepicker-rtl .ui-datepicker-next:hover{left:1px;right:auto}
+.ui-datepicker-rtl .ui-datepicker-buttonpane{clear:right}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button{float:left}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,.ui-datepicker-rtl .ui-datepicker-group{float:right}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header{border-right-width:0;border-left-width:1px}
+.ui-state-hover{background:url(../images/ui/date.png) no-repeat -3px -73px;width:24px;height:24px;overflow:hidden;color:#fff}
+.ui-datepicker-today .ui-state-highlight{color:#fff}
+.ui-datepicker-week-end span{color:#f90;font-weight:700}
+.ui-datepicker .ui-datepicker-buttonpane .ui-state-hover{background: none}
+.ui-priority-secondary{ display: none}</pre>
+	</div>
+	<script src="./js/ui/su_datePic.js"></script>
+
+	<script>
+
+		$(function() {
+
+			$(".date").datepicker({
+                	
+                	showButtonPanel: true,
+					
+					changeMonth: true,
+					
+					changeYear: true,
+					
+					beforeShow: function(input, inst) {
+						datepicker_CurrentInput = input;
+					}
+                	
+           		}).datepicker("setDate", "0");
+			
+			/*清空*/
+			$(".ui-datepicker-close").live("click", function() { 
+				datepicker_CurrentInput.value = "";
+			});
+		})
+		
+		
+	</script>
+
+
+
+</body>
+
+</html>

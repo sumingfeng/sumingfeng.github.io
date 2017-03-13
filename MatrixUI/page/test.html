@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		.page a,.page span{margin-right:10px;}
+	</style>
+</head>
+
+<body>
+
+</body>
+<script src="/matrixPro/js/jq.js"></script>
+<script src="../js/ui/members.js"></script>
+<script>
+	 
+	alert($.proxy)
+	
+	function A() {}
+	
+	A.prototype.x = 10;
+	
+	var a = new A();
+	
+	alert(a.x); 
+	
+	A.prototype = {
+		
+		constructor: A,//？？？？有什么用？
+		
+		y: 100
+	};
+	var b = new A();
+	
+	alert(b.x); // undefined
+	
+	alert(b.y); 
+	
+	var ss = {};
+	
+	console.log(Number.__proto__ == Function.prototype);
+	
+	console.log(String.__proto__)
+	
+</script>
+
+</html>

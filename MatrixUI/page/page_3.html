@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<div id="content">
+  <p class="bold">互联网分销平台 （Fenxiao）</p>
+  <hr/>
+  <p class="l-30"><b>项目名：</b><span class="bold">互联网分销平台</span></p>
+  <p class="l-30"><b>项目Code：</b>http://221.133.230.247:3680/svn/sunrise/1.code/SC_FENXIAO</p>
+   <p class="l-30"><b>项目Docs：</b>http://221.133.230.247:3680/svn/sunrise/document/SC_FENXIAO</p>
+   <p class="l-30"><b>类（Class）</b>：com.sunrise.matrix.Page;com.sunrise.matrix.PageUtil </p>
+  <p class="l-30"> 类及相关方法说明： </p>
+  <pre>
+	<h3>com.sunrise.matrix.pages.Page</h3>
+		<b>setTotalCount(Integer totalSize)</b>
+			作用：设置分页总记录数
+			参数：totalSize Integer类型
+			是否必须：是
+			
+		<b>setResult(List<T> result)</b>    
+			作用：设置页内的记录列表.
+			参数：result List<T>类型
+			是否必须：是
+			
+		<b>setOrderBy(String orderBy)</b>   
+			作用：设置排序字段,多个排序字段时用','分隔
+			参数：orderBy String类型
+			是否必须：否
+			
+		<b>setOrder(String order)</b>     
+		    作用：设置排序方式向.可选值为desc或asc,多个排序字段时用','分隔.
+			参数：order String类型
+			是否必须：否
+			
+	<h3>com.sunrise.matrix.pages.PageUtil</h3>
+		<b>init(Page&lt;?&gt; page, HttpServletRequest request)</b>
+			作用：根据页面传分页参数返回sql分页需要的参数
+			参数：page Page&lt;?&gt;类型，request HttpServletRequest类型
+				  request，其主要为了取前台页面传递过来的分页参数page,pageSize,pageType
+				  其中page为页面当前页，pageSize为页面当前所展示的条数，
+				  pageType为分页类型(0,为数据库分页(数据量大),默认为0;1,缓存分页(将数据查出放入缓存))
+			返回值：int[]类型(此方法返回的为两个数值的int数组 一个是sql所需分页起始值，另一个是分页结束值)
+			是否必须：是
+	</pre>
+  <br/>
+  <pre>所需引入jar：
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+			&lt;artifactId&gt;guava&lt;/artifactId&gt;
+			&lt;version&gt;13.0&lt;/version&gt;
+		&lt;/dependency&gt;
+	</pre>
+  <br/>
+</div>
+</body>
+</html>

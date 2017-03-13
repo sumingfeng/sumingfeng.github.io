@@ -1,0 +1,141 @@
+html{height: 100%}
+body{background: #fff url(../images/bg.png) 0 0 repeat-y; height: 100%}
+.lk_lis a {
+	color: #666;
+	text-decoration: underline
+}
+.lk_lis a:hover {
+	color: #000
+}
+.lk_lis a {
+	margin-right: 15px;
+}
+.wrap {
+	/*background: #eee*/
+}
+.page .header {
+	background-color: #667865;
+	background-image: linear-gradient(#6f836e, #5c6d5b);
+	height: 43px;
+	height: 43px;
+	left: 0;
+	z-index: 1;
+	color: #eee;
+	//padding-bottom:2px;
+	border-bottom: 4px solid #485549
+}
+.header h1 {
+	border-bottom: 3px solid #849285;
+	width: 300px;
+	height: 40px;
+	line-height: 40px;
+	font-family: cursive
+}
+.page .header a {
+	padding-left: 20px;
+	color: #eee;
+	outline: none;
+	text-decoration: none
+}
+.page .lk-item {
+	width: 200px;
+	background: #526054;
+	color: #fff;
+	position: fixed;
+	left: 0;
+	top: 47px;
+	overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.lk-item a {
+	color: #fff;
+}
+.lk-item .inner {
+	padding: 10px;
+}
+.lk-item .hd {
+	cursor: pointer
+}
+.lk-item .box {
+	margin-bottom: 10px;
+}
+.lk-item li {
+	line-height: 24px;
+}
+.lk-item .hd {} .lk-item h2 {
+	color: #eee;
+}
+.lk-item .bd {
+	padding: 10px 0 0 10px
+}
+.right-con {
+	margin-left: 200px;
+	background: #fff;
+	overflow: auto
+}
+.right-con .inner {
+	padding: 20px;
+	font-size: 14px;
+	color: #5a5a5a
+}
+pre {
+	border: 1px solid #6ce26c;
+	padding: 0 0 0 15px;
+	color: #069;
+	line-height: 22px;
+	font-family: Tahoma;
+	font-size: 12px
+}
+pre {
+	width: 800px;
+	border-left: 5px solid #6ce26c !important;
+	background: url(../images/pre_bg.gif);
+	word-break: break-word;
+	word-wrap: break-word;
+}
+.page .pos {
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: auto
+}
+.mod-lis-con {
+	padding-left: 10px;
+}
+.mod-lis .tp h2 {
+	background: #849285;
+	font-weight: normal;
+	font-size: 12px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding-bottom: 2px;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer
+}
+.sb {
+	background: #323b33;
+	border-radius: 50;
+	border-top: 1px solid #738775;
+}
+.go-top {
+	display: block;
+	position: fixed;
+	right: 10px;
+	top:500px;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	border-radius: 40px;
+	overflow: hidden;
+	color: #fff;
+	cursor: pointer;
+	font-size: 18px;
+	background: rgba(0, 0, 0, 0.2);
+}
+.go-top:hover {
+	text-decoration: none;
+	background: rgba(0, 0, 0, 1);
+}

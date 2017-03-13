@@ -1,0 +1,178 @@
+<!doctype html>
+<html charset="utf-8">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/reg.css">
+</head>
+
+<body>
+
+	<header class="header">
+		<div class="inner-hd">
+			<span class="back">&lt;</span>
+			<h1 class="title">音乐联盟</h1>
+		</div>
+	</header>
+
+	<section class="main">
+		<div class="inner-main">
+			<form name="" class="ui-form" method="post" action="" id="validForm">
+				
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>性别：</label>
+						<select class="ui-select" name="select">
+							<option value="">请选择</option>
+							<option value="a">男</option>
+							<option value="b">女</option>
+							<option value="c">保密</option>
+						</select>
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>用户名：</label>
+						<input class="ui-input" name="user" type="text" placeholder="用户名">
+					</div>
+
+					
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>请输入您的密码：</label>
+						<input class="ui-input" name="password" type="password" id="level_pwd" placeholder="密码">
+					</div>
+
+					<div class="ui-form-item pw-letter" id="pw_letter">
+						<label class="ui-label"></label>
+						<span class="color1">低</span>
+						<span class="color2">中</span>
+						<span class="color3">高</span>
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>确认密码：</label>
+						<input class="ui-input" name="repeat_pwd" type="password" placeholder="确认密码">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>请输入您的邮箱：</label>
+						<input class="ui-input" name="email" type="text" placeholder="邮箱">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>手机号：</label>
+						<input class="ui-input" name="phone" type="text" placeholder="手机号">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>身份证号：</label>
+						<input class="ui-input" name="id_card" type="text" placeholder="身份证号">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>银行卡：</label>
+						<input class="ui-input" name="bank_card" id="bank_card" type="text" placeholder="银行卡">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>日期：</label>
+						<input class="ui-input" name="date" type="text" placeholder="日期">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label">
+							<em class="ui-form-required">*</em>网址：</label>
+						<input class="ui-input" name="url" type="text" placeholder="网址 如 http://www.abc.com">
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label vt">
+							<em class="ui-form-required">*</em>爱好：</label>
+						<div class="ui-sec-item">
+							<div>
+								<label>
+									<input type="checkbox" name="topic"> 运动</label>
+								<label>
+									<input type="checkbox" name="topic"> 音乐</label>
+								<label>
+									<input type="checkbox" name="topic"> 影视</label>
+								<label>
+									<input type="checkbox" name="topic"> 佳人</label>
+							</div>
+							<div>
+								<label>
+									<input type="checkbox" name="topic"> 数码</label>
+								<label>
+									<input type="checkbox" name="topic"> 科技</label>
+								<label>
+									<input type="checkbox" name="topic"> 宠物</label>
+								<label>
+									<input type="checkbox" name="topic"> 美图</label>
+							</div>
+							<div class="ui-sec-tip">
+								<label for="topic" class="error">占位</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label vt">
+							<em class="ui-form-required">*</em>是否受伤：</label>
+						<div class="ui-radio-item">
+							<label>
+								<input type="radio" name="radio"> 是</label>
+							<label>
+								<input type="radio" name="radio"> 一般</label>
+							<label>
+								<input type="radio" name="radio"> 很多</label>
+							<div class="ui-sec-tip">
+								<label for="radio" class="error">占位</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label vt">
+							<em class="ui-form-required">*</em>说明：</label>
+						<textarea class="txt-area" name="txtArea"></textarea>
+						<div class="ui-sec-tip no-fit">
+							<label for="txtArea" class="error">占位</label>
+						</div>
+					</div>
+
+					<div class="ui-form-item">
+						<label class="ui-label"></label>
+						<span class="ui-button ui-button-ok">
+							<input class="ui-button-text" type="button" value="确 定" id="isValid">
+						</span>
+					</div>
+				
+			</form>
+		</div>
+	</section>
+	<script src="js/jq.js"></script>
+	<script src="js/su_validation.js"></script>
+	<script src="js/form.js"></script>
+	<script>
+		$(fuction(){
+		
+			alert(123)
+		})
+	</script>
+</body>
+
+</html>

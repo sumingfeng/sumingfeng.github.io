@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<div id="content">
+  <p class="bold">互联网分销平台 （Fenxiao）</p>
+  <hr>
+  <p class="l-30"><b>项目名：</b><span class="bold">互联网分销平台</span></p>
+  <p class="l-30"><b>项目Code：</b>http://221.133.230.247:3680/svn/sunrise/1.code/SC_FENXIAO</p>
+   <p class="l-30"><b>项目Docs：</b>http://221.133.230.247:3680/svn/sunrise/document/SC_FENXIAO</p>
+   <p class="l-30"><b>项目开发环境：</b> <a href="ftp://update:update@221.133.230.247:1421/fx/fxdev.7z" title="分销项目开发环境，解压缩至D盘根目录即可运行" style=" color:#900"><b>点击下载</b></a>（开发环境及配置都已包含在此压缩包，解压缩至D盘根目录即可使用）</p>
+  <p class="l-30"> 开发环境配置注意事项： </p>
+  <pre>
+	<h3>环境配置</h3>
+	<b>Maven：</b>
+           使用版本: Apache Maven 3.1.1
+           Eclipse 引用: Window-&gt;Preferences-&gt;Maven-&gt;Installations:
+           <img src="../matrixPro/images/maven-conf1.PNG" width="680" height="430" alt="Maven 配置">
+           
+           Repository：见Setting.xml文件 <br>
+    <b>Tomcat：</b>
+           使用版本: 7.50
+           
+    <b>JDK：</b>
+           使用版本: 1.7.51
+                              
+	<h3>注意事项</h3>
+	<b>字符编码</b>:
+			项目中所有文件编码为UTF-8.
+	</pre>
+  <br/>
+  <pre>项目引用Matrix组件：
+<span><a href="javascript:;">分页（Pages）</a></span>&nbsp;&nbsp;<span><a href="javascript:;">消息提示（Biz Message）</a></span>&nbsp;&nbsp;<span><a href="javascript:;">用户管理（User Center）</a></span>&nbsp;&nbsp;<br>
+<span><a href="..">缓存（Cache）</a></span>&nbsp;&nbsp;<span><a href="..">搜索引擎（Search）</a></span>&nbsp;&nbsp;<span><a href="..">文件服务（File System）</a></span>...
+	</pre>
+  <p class="bold mt-20">应用层的分层架构图</p>
+  <hr>
+  <img src="/matrixPro/images/fx-mvc1.png">
+  <p class="bold mt-20">MVC开发约定</p>
+  <hr>
+  <ol>
+  	<li class="l-30">1.MVC结构图<br><img src="/matrixPro/images/fx-mvc2.png"></li>
+  	<li class="l-30">2.Controller层约定<br>所有的Controller继承自BaseController，采用注解方式配置请求路径，增删改查方法按以下命名约定：<br><pre>@Controller
+@RequestMapping("/book")
+public class BookController extends BaseController{
+	
+	private final String moduleCode = "Book";
+	
+	@Autowired
+	private BookService bookService;
+	
+	/**
+	 * @Description Book管理页面
+	 * @param request
+	 * @return
+	 * @throws BizException
+	 */
+	@RequestMapping(value = "/",method = RequestMethod.GET)
+	public String manager() throws BizException {
+		return "ucenter/book/book_list";
+	}
+	
+	/**
+	 * @Description Book列表
+	 * @param Book
+	 * @return String
+	*/
+	@RequestMapping(value = "/list",method = RequestMethod.GET)
+	public String list(Book vo) {
+		...
+		return "ucenter/book/book_table";
+	}
+	
+	/**
+	 * @Description 导出BookExcel
+	 * @param HttpServletResponse
+	 * @return 
+	 **/
+	@RequestMapping(value = "/exportExcel",method = RequestMethod.GET)
+	public void exportExcel(HttpServletResponse response,Book vo) {
+		...
+	}
+	
+	/**
+	 * @Description Book列表查询
+	 * @param Page<Book>
+	 * @return 
+	*/
+	private void listSelect(Page<Book> page,Book vo) {
+		...
+		
+		//列表
+		List<Book> oList = bookService.selectByExample(example);
+		
+		page.setTotalCount(totalNum);
+		page.setResult(oList);
+	}
+	
+	/**
+	 * @Description 添加修改页面
+	 * @param paramMap
+	 * @param request
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/edit",method = RequestMethod.GET)
+	public String edit(Book vo,@RequestParam Integer actionType) {
+		...
+		return "ucenter/book/book_edit";
+	}
+	
+	/**
+	 * @Description 创建{table.remarks?if_exists}
+	 * @param request
+	 * @return
+	 * @throws BizException
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/update",method = RequestMethod.POST)
+	public SuccessBean<Integer> update(Book vo,@RequestParam Integer actionType) throws BizException {
+		...
+		SuccessBean<Integer> s = new SuccessBean<Integer>();
+		if(rs>-1){
+			s.setSuccess(true);
+		}
+		return s;
+	}
+	
+	/**
+	 * @Description 删除{table.remarks?if_exists},逻辑删除
+	 * @param request
+	 * @return
+	 * @throws BizException
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/del",method = RequestMethod.DELETE)
+	public SuccessBean<Integer> del(@RequestParam Integer id) throws BizException {
+		...
+		SuccessBean<Integer> sBean = new SuccessBean<Integer>();
+		if(call>-1){
+			sBean.setSuccess(true);
+		}
+		return sBean;
+	}
+	
+	private void validateVo(Book vo,Integer actionType) throws BizException{
+		...
+		/**
+		 * 在下面添加上自己的业务验证
+		 */
+	}
+}
+</pre></li>
+  	<li class="l-30">3.Service层约定<br>
+  		a. 所有的Service继承自IServiceImpl，基本的增删改查功能IServiceImpl已经实现，自己添加的增删改查方法按以下约定命名：<br>
+  		&nbsp;&nbsp;对数据库的增加操作全部以insert开头；<br>
+  		&nbsp;&nbsp;对数据库的删除操作全部以delete开头；<br>
+  		&nbsp;&nbsp;对数据库的修改操作全部以update开头；<br>
+  		&nbsp;&nbsp;对数据库的查询操作全部以select开头；<br>
+  		
+  		b. IServiceImpl只提供了对当前实体的增删改查数据库操作，如果需要对其它的实体进行增删改查数据库操作，需按以下方式引入IDAO：
+  		<pre>@Service
+public class AuthMenuService extends IServiceImpl<AuthMenu, AuthMenuExample> {	
+	@Autowired
+	private IDAO<RolePrivilegeBean,RolePrivilegeBeanExample> authRoleMenuMapper;
+....
+}
+</pre>
+  	使用authRoleMenuMapper就可以对RolePrivilegeBean进行增删改查数据库操作了。<br>
+  	c.如果需要扩充Mybatis生产的sql文件中的方法，可以这样编写:
+  	<pre>this.selectListTByMap("findMenuByRoleId" ,map);
+this.updateByMap("updateAuthMenuOrderNoByLast", map);
+</pre>这两个方法的第一个参数，就是对应sql文件的sqlId，第二个参数就是sqlId的参数。
+可参考com.sunrise.matrix.ucenter.service.AuthMenuService中的代码；
+
+  	</li>
+  	
+	<li class="l-30">4.DAO层约定<br>
+  	默认不用编写DAO层代码，如果需要扩展DAO可以选择继承以下三个DAO
+  	<pre>com.sunrise.matrix.base.persistence.AbstractDAO(最简单的，只有sqlSession)
+com.sunrise.matrix.base.persistence.IDAOImpl(基本的增删改查和自定义查询)
+com.sunrise.matrix.base.persistence.IDAOQueryImpl(自定义查询)
+</pre>根据自己的实际需要扩展。
+  </li>
+  </ol>
+ 
+</div>
+</body>
+</html>

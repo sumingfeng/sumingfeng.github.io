@@ -1,0 +1,34 @@
+/*reset*/
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input{margin:0;padding:0;border:0}
+body{ background-color:#fff;-webkit-overflow-scrolling : touch;font-size:12px;margin:0 auto;font-family:'STHeiti','Microsoft YaHei',Helvetica,Arial,sans-serif;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none}
+ol,ul,li{list-style:none}
+textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;background:#86b7e8}
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #86b7e8;}
+input:-moz-placeholder, textarea:-moz-placeholder {color:#86b7e8;}
+input::-moz-placeholder, textarea::-moz-placeholder {color:#86b7e8;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color:#86b7e8;}
+/*index:;*/
+.top-search{height: 0.6rem;background-color: #1d84ed;width: 100%;}
+.top-search .sh-lis{position: relative; text-align: center;margin:0 auto;padding-top:0.1rem;width:90%}
+.top-search input{background: url(./images/sh.png) right center no-repeat;background-size:0.26rem 0.22rem;width:88%; background-color: #1a77d5;border-radius: 5px;height:0.36rem;color:#86b7e8;font-size:0.16rem;padding-left:0.1rem;padding-right:.3rem}
+/*.top-search s{background: url(./images/sh.png) no-repeat;display:inline-block;position:relative;width:0.22rem;
+height:0.22rem;background-size:0.22rem 0.22rem;left:-0.3rem;top:0.06rem}*/
+
+.top-nav{overflow:hidden;height:0.65rem; background: #f5f5f5;position:relative}
+.top-nav ul{padding-top:0.14rem;padding-left:0.2rem}
+.top-nav li{float:left;width:0.7rem;display: inline;overflow: hidden;cursor: pointer}
+.top-nav li i{width:0.08rem;height:0.01rem;background-color: #83b2e3;display: block;margin-bottom:0.1rem}
+.top-nav a{font-size: 0.14rem; color: #a0c4e7;}
+.top-nav .router-link-active i{width:0.25rem;background: #2e82d6}
+.top-nav .router-link-active a{font-size:0.2rem;color:#1474d1;}
+
+.news-lis li{padding:0.1rem 0;border-bottom: 1px solid #f1f1f1;}
+.pic-txt{position:relative;padding:0 0.15rem}
+.pic-txt .pic{float: left;width:1.16rem;min-height:0.78rem;overflow: hidden; position: relative;overflow:hidden;margin-right:0.1rem}
+.pic-txt .pic img{width: 100%;display: block;max-height:0.78rem;background:#eee}
+.pic-txt .txt {overflow: hidden;padding-bottom: 4px;font-size:0.16rem;}
+.pic-txt .tit{margin-bottom:0.1rem}
+.pic-txt .txt .time{color:#7e7e7e;font-size:0.14rem}

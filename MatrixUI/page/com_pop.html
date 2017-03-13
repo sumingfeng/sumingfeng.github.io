@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="content">
+		<p class="bold">通用提示层，可自定义标题、按钮添加、内容</p>
+		<hr>
+		<a href="javascript:;" style="color:red;text-decoration: underline" id="p1">点击出现弹窗提示，mold类型"tip"</a>
+		<p class="l-30 mt-20">HTML:</p>
+        <pre>&lt;a href=&quot;javascript:;&quot; style=&quot;color:red;text-decoration: underline&quot; id=&quot;p1&quot;&gt;点击出现弹窗提示，mold类型&quot;tip&quot;&lt;/a&gt;</pre>
+        <p class="l-30 mt-20">CSS:</p>
+        <pre>/*dialog*/
+
+.popBox {
+	background: #fff;
+	border: 5px solid #0076bc;
+	position: absolute;
+	border-radius: 3px;
+}
+.popBox .phead h2 {
+	color: #494949;
+	font-size: 14px;
+	background: url(../images/ui/line.png) bottom repeat-x;
+	line-height: 50px;
+	height: 50px;
+	padding-left: 20px;
+}
+.popBox .close {
+	background: url(../images/ui/icon_9.png) no-repeat;
+	width: 26px;
+	height: 26px;
+	line-height: 999px;
+	overflow: hidden;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	cursor: pointer;
+}
+.popBox .close:hover {
+	background: url(../images/ui/icon_9.png) 0 -28px no-repeat;
+}
+.popBox .center {
+	text-align: center;
+}
+.popBox .pbody {
+	padding: 10px;
+}
+.popBox .button-area {
+	padding: 15px 0;
+	text-align: center
+}
+.popBox .button-area input {
+	margin: 0 5px;
+}</pre>
+        <p class="l-30 mt-20">JS:</p>
+        <pre>&lt;script src=&quot;"../js/ui/su_dialog.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+
+			$(&quot;#p1&quot;).click(function() {
+
+				$.su_dialog(
+
+					/* &quot;tip&quot; 为提示层标示 */
+
+					&quot;tip&quot;, {
+
+						width: 400,
+
+						height: &quot;158&quot;,
+
+						title: &quot;自定义标题&quot;,
+
+						tpl: '自定义可变的内容或提示信息',
+
+						buttons: [&quot;确定&quot;, &quot;取消&quot;],
+
+						events: [
+
+							function() {
+
+								alert(&quot;确定&quot;);
+
+								$.su_dialog_close(); //点确定之后关闭
+							},
+
+							function() {
+
+								alert(&quot;取消&quot;);
+
+								$.su_dialog_close(); //点取消之后关闭
+
+							}
+
+						]
+					})
+
+			})
+		}
+&lt;/script&gt;</pre>
+		<br>
+		<br>
+		<p class="bold mt-20">ajax请求同域下的页面</p>
+		<hr>
+		<a href="javascript:;" style="color:red;text-decoration: underline" id="p2">点击弹窗形式加载同域下的HTML页面,mold类型"ajax"</a>
+		<p class="l-30 mt-20">HTML:</p>
+        <pre>&lt;a href=&quot;javascript:;&quot; style=&quot;color:red;text-decoration: underline&quot; id=&quot;p2&quot;&gt;点击弹窗形式加载同域下的HTML页面,mold类型&quot;ajax&quot;&lt;/a&gt;</pre>
+        <p class="l-30 mt-20">CSS:同提示层</p>
+        <p class="l-30 mt-20">JS:</p>
+        <pre>&lt;script src=&quot;"../js/ui/su_dialog.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+
+	    $(&quot;#p2&quot;).click(function(e) {
+
+				$.su_dialog(&quot;ajaxContent.html&quot;, {
+
+						mold: &quot;ajax&quot;, //加载类型
+
+						title: &quot;ajax弹窗标题&quot;,
+
+						width: 400
+
+					}
+
+				)
+			})
+		}
+&lt;/script&gt;</pre>
+		<br>
+		<br>
+		<p class="bold mt-20">iframe跨域请求页面</p>
+		<hr>
+		<a href="javascript:void(0)" style="color:red;text-decoration: underline" id="p3">点击弹窗形式frame跨域加载页面,mold类型"iframe"</a>
+		<p class="l-30 mt-20">HTML:</p>
+        <pre>&lt;a href=&quot;javascript:void(0)&quot; style=&quot;color:red;text-decoration: underline&quot; id=&quot;p3&quot;&gt;点击弹窗形式frame跨域加载页面,mold类型&quot;iframe&quot;&lt;/a&gt;</pre>
+        <p class="l-30 mt-20">CSS:同提示层</p>
+        <p class="l-30 mt-20">JS:</p>
+        <pre>&lt;script src=&quot;"../js/ui/su_dialog.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+			$(&quot;#p3&quot;).click(function(e) {
+
+				$.su_dialog(&quot;http://www.baidu.com&quot;, {
+
+						mold: &quot;iframe&quot;, //加载类型
+
+						title: &quot;iframe弹窗标题&quot;,
+
+						width: 1000
+
+					}
+
+				)
+			})
+		}
+&lt;/script&gt;</pre>
+		<br>
+		<br>
+
+		<p class="bold mt-20">将隐藏层的内容添加到弹窗</p>
+		<hr>
+		<a href="javascript:;" style="color:red;text-decoration: underline" id="p4">点击弹窗形式动态插入隐藏层,mold类型"content"</a>
+		<div id="hide_area" style="display:none">
+			<p>我是隐藏层内容！</p>
+		</div>
+		<p class="l-30 mt-20">HTML:</p>
+        <pre>&lt;a href=&quot;javascript:;&quot; style=&quot;color:red;text-decoration: underline&quot; id=&quot;p4&quot;&gt;点击弹窗形式动态插入隐藏层,mold类型&quot;content&quot;&lt;/a&gt;
+&lt;div id=&quot;hide_area&quot; style=&quot;display:none&quot;&gt;
+ &lt;p&gt;我是隐藏层内容！&lt;/p&gt;
+&lt;/div&gt;</pre>
+        <p class="l-30 mt-20">CSS:同提示层</p>
+        <p class="l-30 mt-20">JS:</p>
+        <pre>&lt;script src=&quot;"../js/ui/su_dialog.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+	$(function() {
+			$(&quot;#p4&quot;).click(function() {
+
+				$.su_dialog(&quot;hide_area&quot;, {
+
+						mold: &quot;content&quot;, //加载类型
+
+						title: &quot;标题&quot;,
+
+						width: 400
+
+					}
+
+				)
+			})
+		}
+&lt;/script&gt;</pre>
+		<br>
+		<br>
+	</div>
+	<script src="./js/ui/su_dialog.js"></script>
+	<script>
+		$(function() {
+
+			$("#p1").click(function() {
+
+				$.su_dialog(
+
+					/* "tip" 为提示层标示 */
+
+					"tip", {
+
+						width: 400,
+
+						height: 158,
+
+						title: "自定义标题",
+
+						tpl: '自定义可变的内容或提示信息',
+
+						buttons: ["确定", "取消"],
+
+						events: [
+
+							function() {
+
+								alert("确定");
+
+								$.su_dialog_close(function(){
+								
+								$.su_dialog(
+
+										/* "tip" 为提示层标示 */
+
+										"tip", {
+
+											width: 400,
+
+											height: 158,
+											
+											tpl:'失败提示！'
+									})
+									
+								}); //点确定之后关闭
+								
+							},
+
+							function() {
+
+								alert("取消");
+
+								$.su_dialog_close(); //点取消之后关闭
+
+							}
+
+						]
+					})
+
+			})
+
+			$("#p2").click(function(e) {
+
+				$.su_dialog("ajaxContent.html", {
+
+						mold: "ajax", //加载类型
+
+						title: "ajax弹窗标题",
+
+						width: 400,
+						
+						height:500
+
+					}
+
+				)
+			})
+
+			$("#p3").click(function(e) {
+
+				$.su_dialog("http://www.baidu.com", {
+
+						mold: "iframe", //加载类型
+
+						title: "iframe弹窗标题",
+
+						width: 1000,
+						
+						height:600
+
+					}
+
+				)
+			})
+
+			$("#p4").click(function() {
+
+				$.su_dialog("hide_area", {
+
+						mold: "content", //加载类型
+
+						title: "标题",
+
+						width: 400,
+						
+						height:158
+
+					}
+
+				)
+			})
+
+		})
+	</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+html {
+	background: #ededed
+}
+
+#chk_code{width:170px; display: inline-block;color: #757575;margin-right:5px;}
+
+.header {
+	width: 100%;
+	height: 45px;
+	line-height: 53px;
+	overflow: hidden;
+	background: #307cba;
+	position: relative;
+	z-index: 3;
+	color: #fff;
+}
+.header .inner-hd {
+	padding: 0 20px;
+	text-align: center
+}
+.header h1 {
+
+}
+.header .back {
+	display: block;
+	width: 24px;
+	height: 22px;
+	background: url("../images/ico_back.png") no-repeat;
+	background-size: 24px 22px;
+	-webkit-background-size: 24px 22px;
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	line-height: 333px;
+	overflow: hidden;
+}
+.header .house {
+	display: block;
+	width: 24px;
+	height: 22px;
+	background: url("../images/ico_home.png") no-repeat;
+	background-size: 24px 22px;
+	-webkit-background-size: 24px 22px;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	line-height: 333px;
+	overflow: hidden;
+}
+.main .inner-main {
+	padding: 10px;
+	position: relative
+}
+.ui-form{margin:5px 0}
+.ui-form .ui-form-item {
+	position: relative;
+}
+.ui-form .ui-input {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 0px;
+	box-shadow: none;
+}
+.ui-form .spl{padding: 6px 12px 6px 32px;}
+.ui-form .ui-label {
+	display: block;
+}
+.ui-form .user {
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	width:16px;
+	height:18px;
+	line-height: 333px;
+	overflow: hidden;
+	background: url("../images/ico_name.png") no-repeat;
+	background-size: 16px 18px;
+	-webkit-background-size: 16px 18px;
+}
+.ui-form .pwd {
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	width:16px;
+	height:18px;
+	line-height: 333px;
+	overflow: hidden;
+	background: url("../images/ico_password.png") no-repeat;
+	background-size: 16px 18px;
+	-webkit-background-size: 16px 18px;
+}
+
+.ui-form .pwd_txt{width:170px; display: inline-block;color: #757575;margin-right:5px;padding-left:32px;}
+.ui-button-normal{
+	display: inline-block;
+	width: 121px;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #b9b9b9;
+	cursor: pointer
+}
+
+.ui-form .ui-button-text {
+	border: 1px solid #307cba;
+	height: 32px;
+	background: #fff;
+	color: #307cba;
+	cursor: pointer;
+	line-height: 32px;
+	border-radius: 0px;
+    width:100%;
+	font-size: 18px;
+	margin-top: 10px;
+}
+.chk_code{position: absolute;left:180px;top:0px;display:block;width:119px; height: 38px;}
+.more-op{}
+.more-op a{ color: #307cba; text-decoration: underline;}

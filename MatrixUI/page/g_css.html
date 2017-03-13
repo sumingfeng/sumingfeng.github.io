@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="content">
+	    <p class="bold">划分</p>
+	    <hr>
+	    <p class="l-30">CSS按照层级不同，分为公用级>产品级>页面级三部分，三者之间为继承关系，公用级定义了重置样式、布局结构、和一些常用的组件等，一般是在各个页面统一加载的; 产品级为不同产品线自有的样式，定义了不同产品线各自的风格，一般在各个app统一加载; 页面级为各产品中重用度不高的内容，单独作为样式文件加载。</p>
+	    
+	     <p class="mt-20 bold">书写规范：</p>
+	    <hr>
+	    <ol>
+	    	<li class="l-30">1.	页面统一utf-8编码。可用 @charset "utf-8"; 指定页面编码。</li>
+	    	<li class="l-30">2.	用<link>而不用@import导入外部样式文件，因为@import在ie6下初始瞬间会无法加载，导致页面变形，并且不能并行加载，不利于优化。</li>
+	    	<li class="l-30">3.	页面中的&lt;link&gt;和&lt;style&gt;不能超过31个。</li>
+	    	<li class="l-30">4.	不要用个性化字体，导致用户不能正常浏览，中文正文建议用宋体，标题可以用雅黑。注意字体要使用英文名称，不要使用中文，如SimSun，"Microsoft YaHei"。</li>
+	    	<li class="l-30">5.	CSS书写符合浏览器兼容标准，确保页面在浏览器中的兼容性。</li>
+	    	<li class="l-30">6.	全部小写，保持CSS写法结构一致。</li>
+	    	<li class="l-30">7.	CSS命名规则，以英文单词为单位，多个单词使用小横线-连接(例：class="app-list-info")，不使用拼音。</li>
+	    	<li class="l-30">8.	将作用于不同模块的CSS规则集中放在一起，同时用注释说明。通用规则放在具体模块规则的前面。</li>
+	    	<li class="l-30">9.	注释的格式：<pre>/*header*/
+注释中间不要加---。
+</pre></li>
+	    	
+	    	<li class="l-30">10.尽量保持结构与样式分离，便于管理。只使用一次的样式，可以直接加在元素上。</li>
+	    	<li class="l-30">11.不要使用 !important 打乱CSS继承关系。</li>
+	    	<li class="l-30">12.清除内容浮动用.clearfix样式，避免用overflow属性造成页面其它兼容问题。</li>
+	    	<li class="l-30">13.尽可能调用系统中现有的样式。</li>
+	    	<li class="l-30">14.每个页面的ID必须是唯一的，且用在结构的定义中。</li>
+	    	<li class="l-30">15.CSS中禁止使用expression表达式。</li>
+	    	<li class="l-30">16.CSS中尽量不要使用滤镜。</li>
+	    	<li class="l-30">17.尽量不要设置容器的高度，保持容器高度可自适应，height:100%可能会遇到兼容性问题。
+
+</li>
+	    </ol>
+	    <p class="mt-20 bold">命名参考：</p>
+	   
+	    <hr>
+	     <p>常用的class命名规则：</p>
+	     
+	     <pre>头：header
+内容：content/container
+尾：footer
+导航：nav
+侧栏：sidebar
+栏目：column
+页面外围控制整体布局宽度：wrapper/wrap
+左右中：left right middle center
+登录条：login
+标志：logo
+广告：banner
+页面主体：main/body
+热点：hot
+新闻：news
+下载：download
+子导航：subnav
+菜单：menu/dropmenu
+子菜单：submenu
+标题：title/ttl/caption/small-caption
+摘要：summary
+搜索：search
+友情链接：friendlink
+页脚：footer
+版权：copyright
+滚动：scroll
+标签页：tab
+文章列表：list
+栏目标题：title
+指南：guild
+服务：service
+注册：regsiter
+投票：vote
+加入我们：joinus
+状态：status/status-bar
+按钮：btn-
+图标：ico-/icon-
+滚动：scroll
+标签页：tab
+文章列表：list
+弹出层：pop/popup/dialog
+状态提醒：success/error/alert/notice/caution
+提示信息：msg/message/message-box
+当前的：current/curr/active/act/selected/on
+小技巧：tips
+注释：note/notice
+指南：guide
+服务：service</pre>
+	     
+	     <ol>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     	<li class="l-30"></li>
+	     </ol>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+
+<body>
+	<div id="content">
+		<!-- 数据表格 -->
+		<div class="ui-table-box">
+			<table class="datatable" width="100%" border="0" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th style="width:20%">111</th>
+						<th>2222</th>
+						<th style="width:20%">3333</th>
+
+					</tr>
+				</thead>
+				<tbody id="list-content"></tbody>
+			</table>
+			<!-- pageBox 分页 -->
+			<div class="pageBox clearfix">
+				<div class="pagination ui-page" id="pagination"></div>
+				<div class="set-page">
+					<span class="total_num">总页数:
+						<em>1</em>页</span>
+					<span class="total_tr">总条数:
+						<em>0</em>条</span>
+					<span class="option_numeric">
+						<label for="items_per_page">每页显示的列表数：</label>
+						<input type="text" value="10" name="items_per_page" id="items_per_page" class="numeric">
+						<input type="button" id="setoptions" value="设置选项">
+					</span>
+				</div>
+			</div>
+			<!-- 分页 end -->
+		</div>
+		<!-- 数据表格 end-->
+	</div>
+
+	<p class="l-30 mt-20">HTML:</p>
+	<pre>&lt;!-- 数据表格 --&gt;
+	&lt;div class=&quot;ui-table-box&quot;&gt;
+		&lt;table class=&quot;datatable&quot; width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+			&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th style=&quot;width:20%&quot;&gt;111&lt;/th&gt;
+					&lt;th&gt;2222&lt;/th&gt;
+					&lt;th style=&quot;width:20%&quot;&gt;3333&lt;/th&gt;
+
+				&lt;/tr&gt;
+			&lt;/thead&gt;
+			&lt;tbody id=&quot;list-content&quot;&gt;&lt;/tbody&gt;
+		&lt;/table&gt;
+		&lt;!-- pageBox 分页 --&gt;
+		&lt;div class=&quot;pageBox clearfix&quot;&gt;
+			&lt;div class=&quot;pagination ui-page&quot; id=&quot;pagination&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;set-page&quot;&gt;
+				&lt;span class=&quot;total_num&quot;&gt;总页数:
+					&lt;em&gt;1&lt;/em&gt;页&lt;/span&gt;
+				&lt;span class=&quot;total_tr&quot;&gt;总条数:
+					&lt;em&gt;0&lt;/em&gt;条&lt;/span&gt;
+				&lt;span class=&quot;option_numeric&quot;&gt;
+					&lt;label for=&quot;items_per_page&quot;&gt;每页显示的列表数：&lt;/label&gt;
+					&lt;input type=&quot;text&quot; value=&quot;10&quot; name=&quot;items_per_page&quot; id=&quot;items_per_page&quot; class=&quot;numeric&quot;&gt;
+					&lt;input type=&quot;button&quot; id=&quot;setoptions&quot; value=&quot;设置选项&quot;&gt;
+				&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;!-- 分页 end --&gt;
+	&lt;/div&gt;
+	&lt;!-- 数据表格 end--&gt;</pre>
+	<p class="l-30 mt-20">CSS:</p>
+	<pre>/*ui-page*/
+
+.ui-page {
+	margin: 10px 0;
+}
+.ui-page a,
+.ui-page span {
+	float: left;
+	padding: 4px 12px;
+	line-height: 18px;
+	text-decoration: none;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	border-left-width: 0;
+	color: #666
+}
+.ui-page a:hover,
+.ui-page .active>a,
+.ui-page .active>span {
+	background-color: #f5f5f5;
+}
+.ui-page .active>a,
+.ui-page .active>span {
+	color: #999999;
+	cursor: default;
+}
+.ui-page .disabled>span,
+.ui-page .disabled>a,
+.ui-page .disabled>a:hover {
+	color: #999999;
+	background-color: transparent;
+	cursor: default;
+}
+.ui-page a:first-child,
+.ui-page span:first-child {
+	border-left-width: 1px;
+	-webkit-border-top-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-left-radius: 4px;
+}
+.ui-page a:last-child,
+.ui-page span:last-child {
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-bottom-right-radius: 4px;
+}
+.ui-page span.current {
+	background: #f5f5f5
+}
+.pageBox .set-page {
+	margin-top: 3px;
+	margin-left: 10px;
+	float: left
+}
+.pageBox .total_num {
+	margin-right: 10px;
+}
+.pageBox .numeric {
+	width: 60px;
+}</pre>
+	<p class="l-30 mt-20">JS:</p>
+	<pre>&lt;script&gt;
+		// This file demonstrates the different options of the pagination plugin
+		 // It also demonstrates how to use a JavaScript data structure to 
+		 // generate the paginated content and how to display more than one 
+		 // item per page with items_per_page.
+
+		/**
+		 * Callback function that displays the content.
+		 *
+		 * Gets called every time the user clicks on a pagination link.
+		 *
+		 * @param {int}page_index New Page index
+		 * @param {jQuery} jq the container with the pagination links as a jQuery object
+		 */
+		function pageselectCallback(page_index, jq) {
+			// Get number of elements per pagionation page from form
+			var items_per_page = $('#items_per_page').val();
+			var max_elem = Math.min((page_index + 1) * items_per_page, members.length);
+			var newcontent = '';
+
+			// Iterate through a selection of the content and build an HTML string
+			for (var i = page_index * items_per_page; i &lt; max_elem; i++) {
+				newcontent += '&lt;tr&gt;';
+				newcontent += '&lt;td&gt;' + members[i][0] + '&lt;/td&gt;';
+				newcontent += '&lt;td class=&quot;state&quot;&gt;' + members[i][2] + '&lt;/td&gt;';
+				newcontent += '&lt;td class=&quot;party&quot;&gt;' + members[i][3] + '&lt;/td&gt;';
+				newcontent += '&lt;/tr&gt;';
+			}
+
+			// Replace old content with new content
+			$('#list-content').html(newcontent);
+
+			var pc = new $.PaginationCalculator(members.length, getOptionsFromForm());
+			var np = pc.numPages(); //总页数
+			var $pagination = $(&quot;.set-page&quot;);
+			var $total_num = $pagination.find(&quot;.total_num&quot;);
+			$total_num.find(&quot;em&quot;).html(np); //总页数随着条数的变换
+
+			$('.datatable').su_tableStyle({
+				odd: &quot;tr-odd&quot;
+			});
+			// Prevent click event propagation
+			return false;
+		}
+
+		 // The form contains fields for many pagiantion optiosn so you can 
+		 // quickly see the resuluts of the different options.
+		 // This function creates an option object for the pagination function.
+		 // This will be be unnecessary in your application where you just set
+		 // the options once.
+		function getOptionsFromForm() {
+			var opt = {
+				callback: pageselectCallback,
+				prev_text: '上一页',
+				next_text: '下一页'
+			};
+			// Collect options from the text fields - the fields are named like their option counterparts
+			$(&quot;input:text&quot;).each(function() {
+				opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
+			});
+			// Avoid html injections in this demo
+			var htmlspecialchars = {
+				&quot;&amp;&quot;: &quot;&amp;amp;&quot;,
+				&quot;&lt;&quot;: &quot;&amp;lt;&quot;,
+				&quot;&gt;&quot;: &quot;&amp;gt;&quot;,
+				'&quot;': &quot;&amp;quot;&quot;
+			}
+			$.each(htmlspecialchars, function(k, v) {
+				opt.prev_text = opt.prev_text.replace(k, v);
+				opt.next_text = opt.next_text.replace(k, v);
+			})
+			return opt;
+		}
+
+		 // When document has loaded, initialize pagination and form 
+		$(document).ready(function() {
+
+			// Create pagination element with options from form
+			var optInit = getOptionsFromForm();
+			$(&quot;#pagination&quot;).pagination(members.length, optInit);
+			$(".total_tr em").html(members.length);
+			// Event Handler for for button
+			$(&quot;#setoptions&quot;).click(function() {
+				var opt = getOptionsFromForm();
+				// Re-create pagination content with new parameters
+				$(&quot;#pagination&quot;).pagination(members.length, opt);
+
+			});
+		});
+	&lt;/script&gt;</pre>
+	<script src="./js/ui/su_pagination.js"></script>
+	<script src="./js/ui/su_tableStyle.js"></script>
+	<script src="./js/ui/members.js"></script>
+	<script>
+		// This file demonstrates the different options of the pagination plugin
+		 // It also demonstrates how to use a JavaScript data structure to 
+		 // generate the paginated content and how to display more than one 
+		 // item per page with items_per_page.
+
+		/**
+		 * Callback function that displays the content.
+		 *
+		 * Gets called every time the user clicks on a pagination link.
+		 *
+		 * @param {int}page_index New Page index
+		 * @param {jQuery} jq the container with the pagination links as a jQuery object
+		 */
+		function pageselectCallback(page_index, jq) {
+			// Get number of elements per pagionation page from form
+			var items_per_page = $('#items_per_page').val();
+			var max_elem = Math.min((page_index + 1) * items_per_page, members.length);
+			var newcontent = '';
+
+			// Iterate through a selection of the content and build an HTML string
+			for (var i = page_index * items_per_page; i < max_elem; i++) {
+				newcontent += '<tr>';
+				newcontent += '<td>' + members[i][0] + '</td>';
+				newcontent += '<td class="state">' + members[i][2] + '</td>';
+				newcontent += '<td class="party">' + members[i][3] + '</td>';
+				newcontent += '</tr>';
+			}
+
+			// Replace old content with new content
+			$('#list-content').html(newcontent);
+			
+			var pc = new $.PaginationCalculator(members.length, getOptionsFromForm());
+			var np = pc.numPages();//总页数
+			var $pagination = $(".set-page");
+			var $total_num = $pagination.find(".total_num");
+			$total_num.find("em").html(np);//总页数随着条数的变换
+			
+			$('.datatable').su_tableStyle({
+				odd: "tr-odd"
+			});
+			// Prevent click event propagation
+			return false;
+		}
+
+		 // The form contains fields for many pagiantion optiosn so you can 
+		 // quickly see the resuluts of the different options.
+		 // This function creates an option object for the pagination function.
+		 // This will be be unnecessary in your application where you just set
+		 // the options once.
+		function getOptionsFromForm() {
+			var opt = {
+				callback: pageselectCallback,
+				prev_text: '上一页',
+				next_text: '下一页'
+			};
+			// Collect options from the text fields - the fields are named like their option counterparts
+			$("input:text").each(function() {
+				opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
+			});
+			// Avoid html injections in this demo
+			var htmlspecialchars = {
+				"&": "&amp;",
+				"<": "&lt;",
+				">": "&gt;",
+				'"': "&quot;"
+			}
+			$.each(htmlspecialchars, function(k, v) {
+				opt.prev_text = opt.prev_text.replace(k, v);
+				opt.next_text = opt.next_text.replace(k, v);
+			})
+			return opt;
+		}
+
+		 // When document has loaded, initialize pagination and form 
+		$(document).ready(function() {
+
+			// Create pagination element with options from form
+			var optInit = getOptionsFromForm();
+			$("#pagination").pagination(members.length, optInit);
+			$(".total_tr em").html(members.length);
+			// Event Handler for for button
+			$("#setoptions").click(function() {
+				var opt = getOptionsFromForm();
+				// Re-create pagination content with new parameters
+				$("#pagination").pagination(members.length, opt);
+				
+			});
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+
+.header {
+
+	width: 100%;
+
+	height: 50px;
+
+	line-height: 50px;
+
+	overflow: hidden;
+
+	background: #0076bc;
+
+	box-shadow: 1px 1px 8px #c6c5c6;
+
+	-webkit-box-shadow: 1px 1px 8px #c6c5c6;
+
+	-moz-box-shadow: 1px 1px 8px #c6c5c6;
+
+	-o-box-shadow: 1px 1px 8px #c6c5c6;
+
+	-ms-box-shadow: 1px 1px 8px #c6c5c6;
+
+	position: relative;
+
+	z-index: 3;
+
+	color: #fff;
+
+}
+
+.header .inner-hd {
+
+	padding: 0 20px;
+
+	text-align: center
+
+}
+
+.header h1 {
+
+	font-size: 18px;
+
+}
+
+.header .back {
+
+	display: block;
+
+	width: 24px;
+
+	height: 16px;
+
+	background: url("../images/2b.png") no-repeat -2px -11px;
+
+	background-size: 50px auto;
+
+	-webkit-background-size: 50px auto;
+
+	position: absolute;
+
+	left: 20px;
+
+	top: 14px;
+
+	line-height: 333px;
+
+	overflow: hidden;
+
+}
+
+.main .inner-main {
+
+	padding: 10px;
+
+	position: relative
+
+}
+
+input {}

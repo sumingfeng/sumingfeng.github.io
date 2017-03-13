@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<select name="" id="provinces">
+			
+	</select>
+			<select name="" id="citys">
+			
+			</select>
+	
+</body>
+
+<script>
+		var cy = {
+		
+			provinces : [
+				
+				{"code" : 0,"name":"请选择"},
+				
+				{"code" : 1,"name":"北京"},
+				
+				{"code" : 2,"name":"上海"}
+				
+			],
+			
+			citys:{
+			
+				0 : [
+					
+					"请选择"
+				],
+				
+				1 : [
+					
+					"朝阳区",
+                    "海淀区",
+                    "东城区",
+                    "西城区",
+                    "房山区",
+                    "其他"
+				],
+				
+				2 : [
+					
+					"徐汇区",
+					"长宁区",
+					"普陀区",
+					"长宁区",
+					"其他"
+				]
+			}
+		} 
+		
+		function addOpt(objPro,objCt){
+			
+			var proHtml = '';
+			
+			for(i=0;i<cy.provinces.length;i++){
+				
+				proHtml += "<option value=\""+cy.provinces[i].code+"\">"+cy.provinces[i].name+"</option>"	
+			}
+			
+			objPro.innerHTML = proHtml;
+			
+			objCt.innerHTML = "<option value=\""+0+"\">"+cy.citys[0]+"</option>";
+		}
+		
+		var J_province = document.getElementById("provinces");
+		
+		var J_city = document.getElementById("citys");
+		
+		addOpt(J_province,J_city);
+		
+		J_province.onchange = function(){
+		
+			var cityOptionHtml = "";
+			
+			for(i=0;i<cy.citys[this.value].length;i++){
+				
+				cityOptionHtml += "<option value=\""+i+"\">"+cy.citys[this.value][i]+"</option>";
+			}
+			
+			J_city.innerHTML = cityOptionHtml;
+		}
+		
+</script>
+
+</html>

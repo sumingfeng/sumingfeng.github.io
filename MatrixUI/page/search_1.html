@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div id="content">
+		<p class="bold">搜索引擎</p>
+  		<hr>
+  		<p class="l-30">项目名：搜索</p>
+		<p class="l-30">项目路径：http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/m-search/</p>
+		<p style="display:none"><a href="http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/search/docs/搜索引擎使用说明文档.doc" target="_blank">http://221.133.230.247:3680/svn/sunrise/1.code/SC_MUMP/1.trunk/matrix/search/docs/搜索引擎使用说明文档.doc</a></p>
+		<p class="bold mt-20">接口列表、接口函数介绍</p>
+		<hr>
+		<p><a href="/matrixPro/page/searchApi/index.html" target="_blank">点此链接进入</a></p>
+		<p class="bold mt-20">配置使用</p>
+		<hr>
+		
+		<ol>
+			<li class="l-30">1.参数配置<p class="l-30">配置信息参考配置文件searchConfig.properties，
+具体业务使用依赖注入方式初始化实例。
+</p></li>
+		<li class="l-30">2、初始化java客户端<p class="l-30">具体业务需实现SearchService.java类，系统初始化时通过@PostConstruct 和 @PreDestroy 注释init()和destroy()方法实现初始化和销毁bean之前进行的操作。
+</p></li>
+		<li class="l-30">3、创建索引<p class="l-30">具体业务实现类的createIndex()方法需实现，示例如下：
+</p><pre>//创建索引名称,不能包含大写字母
+		private String indexName = "goods";
+		/**
+		 * 创建索引，预定义一个索引的mapping,个性设置字段的属性
+		 * @throws Exception
+		 */
+		@
+		Override
+		 public void createIndex() {
+			//删除某个索引：
+			try {
+				getSearchClient().admin().indices().prepareDelete(indexName).execute().actionGet();
+			} catch (Exception e) {
+				log.error("删除索引错误[" + indexName + "]: " + e);
+			}
+			try {
+				getSearchClient().admin().indices().prepareCreate(indexName).execute().actionGet();
+				XContentBuilder mapping;
+				mapping = XContentFactory.jsonBuilder()
+					.startObject()
+					.startObject(indexName + "_index") //索引库名（类似数据库中的表）
+				//.startObject("_ttl")//有了这个设置,就等于在这个给索引的记录增加了失效时间,ttl的使用地方如在分布式下,web系统用户登录状态的维护.
+				//	.field("enabled",true)//默认的false的
+				//	.field("default","24h")//默认的失效时间,d/h/m/s 即天/小时/分钟/秒
+				//	.field("store","yes")//store设置为yes来存储实际的字段索引,没有不存储它。默认为没有(注意,JSON文档本身是存储,可以从它检索)。
+				//	.field("index","not_analyzed")
+				//.endObject()
+				//.startObject("_timestamp")//这个字段为时间戳字段.即你添加一条索引记录后,自动给该记录增加个时间字段(记录的创建时间),搜索中可以直接搜索该字段.
+				//	.field("enabled",true)
+				//	.field("store","no")
+				//	.field("index","not_analyzed")
+				//.endObject()
+				.startObject("properties") //properties下定义的title等等就是属于我们需要的自定义字段了,相当于数据库中的表字段 ,此处相当于创建数据库表
+				//创建mapping(feid("indexAnalyzer","ik")该字段分词IK索引 ；feid("searchAnalyzer","ik")该字段分词ik查询；
+				//当某一个字段要分词搜索， 则index就要设置相应的分词器，store设置为true
+				//当某一个字段要facet（分组统计），则必须设置这个字段为no_analyzerd（不分词）；原因是字段不设置分词，默认是一元分词。
+				//搜索关键字相应分数，对一些排名算法有一定的帮助，可以为一些重要字段设置分值（boost）
+				.startObject("goodsName").field("type", "string").field("store", "yes").field("indexAnalyzer", "ik").field("searchAnalyzer", "ik").field("boost", 1.0).endObject()
+					.startObject("albumList").field("type", "string").field("store", "yes").field("indexAnalyzer", "ik").field("searchAnalyzer", "ik").endObject()
+					.startObject("singerList").field("type", "string").field("store", "yes").field("indexAnalyzer", "ik").field("searchAnalyzer", "ik").field("null_value", "null").endObject()
+					.startObject("cpId").field("type", "string").endObject()
+					.startObject("maxPrice").field("type", "double").endObject()
+					.startObject("minPrice").field("type", "double").endObject()
+					.startObject("maxCommMoney").field("type", "double").endObject()
+					.startObject("minCommMoney").field("type", "double").endObject()
+					.startObject("catList").field("type", "string").endObject()
+					.startObject("tagList").field("type", "string").endObject()
+					.startObject("goodsId").field("type", "long").endObject()
+					.startObject("masterCatId").field("type", "integer").endObject()
+				//.startObject("timeStamp").field("type", "date").field("index", "not_analyzed").field("format","yyyy-MM-dd HH:mm").endObject()
+				.endObject()
+					.endObject()
+					.endObject();
+				PutMappingRequest mappingRequest = Requests.putMappingRequest(indexName).type(indexName).source(mapping);
+				getSearchClient().admin().indices().putMapping(mappingRequest).actionGet();
+			} catch (Exception e) {
+				log.error("索引已存在/创建索引错误[" + indexName + "]: ", e);
+			}</pre></li>
+			<li class="l-30">4、初始、更新索引数据<p class="l-30">使用方法如下：
+</p><pre>S * * * 初始化插入(每日凌晨5点执行) * @
+		return */
+    public void initGoodsData() {  
+    	synchronized (this) {
+			
+	    	/ / 向索引类型里插入数据，第一次时必须定义json方式插入数据，否则索引数据类型会出现错误
+		try {
+			XContentBuilder xContentBuilder = XContentFactory.jsonBuilder()
+				.startObject()
+				.field("maxCommMoney", 3.5)
+				.field("minCommMoney", 2.5)
+				.field("minPrice", 3.5)
+				.field("maxPrice", 2.5)
+				.field("catList", "catList")
+				.field("goodsName", "goodsName")
+				.field("cpId", "1")
+				.field("goodsId", 1)
+				.field("albumList", "albumList")
+				.field("singerList", "singerList")
+				.field("masterCatId", "1")
+				.endObject();
+			IndexResponse response = getSearchClient().prepareIndex(indexName, indexName)
+				.setSource(xContentBuilder)
+				.execute()
+				.actionGet();
+		} catch (IOException e) {
+			log.error("索引插入数据错误[" + indexName + "]: ", e);
+		}
+
+		 //清空索引
+		deleteAll();
+		java.sql.Connection con = null;
+		PreparedStatement ps = null;
+		java.sql.ResultSet rs = null;
+		try {
+			con = getConnection();
+			ps = con.prepareStatement("SELECT COUNT(*) AS COUNTS FROM OSP_GOODS_SEARCH");
+			rs = ps.executeQuery();
+			rs.next();
+			int totalRows = rs.getInt("COUNTS");
+			int startNum = 0;
+			int currentPage = 1;
+			int pageSize = 50000;
+			int totalPages;
+			if ((totalRows % pageSize) == 0) {
+				totalPages = totalRows / pageSize;
+			} else {
+				totalPages = totalRows / pageSize + 1;
+			}
+			while (hasNexePage(currentPage, totalPages)) {
+				startNum = (currentPage - 1) * pageSize;
+				currentPage++;
+				ps = con.prepareStatement("SELECT GOODS_ID, CP_ID, GOODS_NAME, GOODS_DESC, MASTER_CAT_ID, CAT_LIST, TAG_LIST, ALBUMNAME_LIST, SINGERNAME_LIST, " + "MAX_PRICE, MIN_PRICE, MAX_COMM_MONEY, MIN_COMM_MONEY, TIME_STAMP, MASTER_CAT_ID FROM OSP_GOODS_SEARCH ORDER BY GOODS_NAME LIMIT " + startNum + "," + pageSize);
+				rs = ps.executeQuery();
+				List < HashMap < String, Object[] >> insertList = new ArrayList < HashMap < String, Object[] >> ();
+				HashMap < String, Object[] > map;
+				int i = 0;
+
+				while (rs.next()) {
+					i++;
+					map = new HashMap < String, Object[] > ();
+					map.put("goodsId", new Object[] {
+						rs.getLong("GOODS_ID")
+					});
+					map.put("cpId", new Object[] {
+						rs.getString("CP_ID")
+					});
+					map.put("goodsName", new Object[] {
+						rs.getString("GOODS_NAME")
+					});
+					if (StringUtils.isNotBlank(rs.getString("CAT_LIST"))) {
+						map.put("catList", new Object[] {
+							"09," + rs.getString("CAT_LIST") + ",09"
+						});
+					}
+					if (StringUtils.isNotBlank(rs.getString("TAG_LIST"))) {
+						map.put("tagList", new Object[] {
+							"09," + rs.getString("TAG_LIST") + ",09"
+						});
+					}
+					map.put("maxPrice", new Object[] {
+						rs.getDouble("MAX_PRICE")
+					});
+					map.put("minPrice", new Object[] {
+						rs.getDouble("MIN_PRICE")
+					});
+					map.put("maxCommMoney", new Object[] {
+						rs.getDouble("MAX_COMM_MONEY")
+					});
+					map.put("minCommMoney", new Object[] {
+						rs.getDouble("MIN_COMM_MONEY")
+					});
+					map.put("albumList", new Object[] {
+						rs.getString("ALBUMNAME_LIST")
+					});
+					map.put("singerList", new Object[] {
+						rs.getString("SINGERNAME_LIST")
+					});
+					map.put("masterCatId", new Object[] {
+						rs.getString("MASTER_CAT_ID")
+					});
+					insertList.add(map);
+					//批量插入
+					if (i == 5000) {
+						bulkInsertData(indexName, insertList);
+						i = 0;
+						insertList = new ArrayList < HashMap < String, Object[] >> ();
+					}
+				}
+				if (insertList.size() > 0) {
+					bulkInsertData(indexName, insertList);
+				}
+			}
+		} catch (SQLException e) {
+			log.error("商品信息初始化索引错误:", e);
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					log.error("ps数据库关闭连接错误:", e);
+				}
+				ps = null;
+			}
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					log.error("rs数据库关闭连接错误:", e);
+				}
+				rs = null;
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					log.error("con数据库关闭连接错误:", e);
+				}
+				con = null;
+			}
+
+		}
+		}
+		}
+
+		private boolean hasNexePage(int currentPage, int totalPages) {
+			if (currentPage > totalPages) {
+				return false;
+			} else {
+				return true;
+			}
+		}</pre></li>
+		<li class="l-30">5.查询参数、结果处理<p class="l-30">由于接口查询数据的参数都是以LIST和MAP组装的数据，需要在具体业务实现类进行相应的查询参数和返回结果进行转换，如：<pre>/**
+		 * 组装查询Should map
+		 * @Description：
+		 * @param goodsMgrVO
+		 * @return:
+		 * @return HashMap<String,Object[]>:
+		 */
+		private HashMap < String, Object[] > buildShouldSearchMap(GoodsMgrVO goodsMgrVO) {
+			if (goodsMgrVO == null) {
+				return null;
+			}
+			HashMap < String, Object[] > map = new HashMap < String, Object[] > ();
+			SearchOption searchOption = new SearchOption();
+			searchOption.setQueryStringPrecision("1");
+			//商品名 歌手名 专辑名
+			if (StringUtils.isNotBlank(goodsMgrVO.getGoodsName())) {
+				map.put("singerList", new Object[] {
+					goodsMgrVO.getGoodsName(), searchOption
+				});
+				map.put("albumList", new Object[] {
+					goodsMgrVO.getGoodsName(), searchOption
+				});
+				map.put("goodsName", new Object[] {
+					goodsMgrVO.getGoodsName(), searchOption
+				});
+			}
+
+			return map;
+		}
+
+
+		/**
+		 * 组装查询结果到GoodsMgrVO
+		 * @Description：
+		 * @param HashMap<String,Object[]>
+		 * @return GoodsMgrVO
+		 */
+		private GoodsMgrVO buildGoodsMgrVO(Map < String, Object > map) {
+			if (map == null) {
+				return null;
+			}
+			GoodsMgrVO goodsMgrVO = new GoodsMgrVO();
+			goodsMgrVO.setSingerName((String) map.get("singerList"));
+			goodsMgrVO.setAlbumName((String) map.get("albumList"));
+			goodsMgrVO.setCommMoney(new BigDecimal("" + map.get("maxCommMoney")));
+			goodsMgrVO.setGoodsId(Integer.parseInt("" + map.get("goodsId")));
+			goodsMgrVO.setCpId((String) map.get("cpId"));
+			goodsMgrVO.setGoodsName((String) map.get("goodsName"));
+			goodsMgrVO.setPrice(new BigDecimal("" + map.get("maxPrice")));
+			return goodsMgrVO;
+		}</pre>
+</p></li>
+		</ol>
+		
+	</div>
+
+	
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Su Ming's works</title>
+    <style>
+       
+        body,
+        a,
+        img {
+            margin: 0;
+            padding: 0
+        }
+        
+        body {
+            background-color: #000
+        }
+        
+        .wrap .phone {
+            background: url('./images/samsung.png') no-repeat;
+            min-width: 365px;
+            width: 365px;
+            background-size: 100%;
+            
+            padding: 73px 14px 0 14px;
+            box-sizing: border-box;
+            height: 748px
+        }
+        
+        .wrap {
+            height: inherit;
+            padding: 0 40px;
+            box-sizing: border-box;
+            width: 1000px;
+            margin: 0 auto;
+           line-height: 1.5;
+           font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+        }
+        
+        .wrap .showDemo {
+            width: 100%;
+            height: 608px;
+        }
+        
+        .wrap .info .tit {
+            color: #fff;
+        }
+        
+        .wrap .info {
+            color: #929292;
+            padding-top:40px;
+        }
+        .wrap .pic-info{position: relative;padding-left:420px;font-size:16px}
+        .wrap .phone{position: absolute;left: 0;top:5px;}
+        .pic-info .des{font-size: 14px;font-family: "微软雅黑"}
+        .pic-info .des a{color:#999}
+        .pic-info .intro{font-family: "微软雅黑"}
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="pic-info">
+            <div class="phone">
+                <iframe src="./vue-news/index.html" frameborder=”no” border=”0″ marginwidth=”0″ marginheight=”0″ class="showDemo" scrolling="no"
+                    allowtransparency="yes"></iframe>
+            </div>
+            <div class="info">
+                <h2 class="tit">News Web App</h2>
+                <p class="intro">用Vuejs写的一个新闻webapp,没用第三方UI框架，从photoshop视觉设计到重构再到前端，均由自己一个人操刀完成。里面的数据都是从网上抓取。</p>
+                <p class="des">涉及到的技术点：Rem布局、css3 flex、transition、手势库AlloyFinger、Vuejs、vuex+vue-router+axios、webpack、Es6</p>
+                <p class="des">链接地址：<a href="http://sumingfeng.github.io/vue-news" target="blank">sumingfeng.github.io/vue-news</a></p>
+                 <h2 class="tit">Goods-release Web App</h2>
+                 <p class="intro">用Vuejs写的一个移动电商产品发布工具，开发过程同上。</p>
+                 <p class="des">涉及到的技术点：target-densitydpi、css3 flex、transition、Vuejs、vuex+vue-router、picker、webpack、Es6</p>
+                 <p class="des">链接地址：<a href="http://sumingfeng.github.io/goods-release" target="blank">sumingfeng.github.io/goods-release</a></p>
+                 <h2 class="tit">Matrix UI</h2>
+                 <p class="intro">基于jquery写的一个PC端的UI框架，主要用于PC端的开发，已经是十分久远的事情了，一直未怎么更新，因为将工作重心放到了移动端</p>
+                 <p class="des">涉及到的技术点：代码规范、优化、扩展性的HTML、css3组件、jquery公用插件的编写。</p>
+                <p class="des">链接地址：<a href="http://sumingfeng.github.io/MatrixUI" target="blank">sumingfeng.github.io/MatrixUI</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

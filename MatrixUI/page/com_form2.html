@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="../css/base.css" type="text/css" rel="stylesheet" >
+</head>
+
+<body>
+	<form  class="ui-form" id="validForm">
+		<fieldset>
+			<legend>表单标题</legend>
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>选择爱好：</label>
+				<select class="ui-select" name="select">
+					<option value="">——请选择——</option>
+					<option value="a">爱好1</option>
+					<option value="b">爱好2</option>
+					<option value="c">爱好3</option>
+				</select>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>用户名：</label>
+				<input class="ui-input" name="miUser" id="miUser" type="text">
+				<span class="warning3" style="display:none">请输入您的身份证号</span>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>请输入您的密码：</label>
+				<input class="ui-input" name="password" type="password">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>确认密码：</label>
+				<input class="ui-input" name="repeat_pwd" type="password">
+			</div>
+
+			<div class="ui-form-item pw-letter" id="pw_letter">
+				<label class="ui-label"></label>
+				<span class="color1">低</span>
+				<span class="color2">中</span>
+				<span class="color3">高</span>
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>请输入您的邮箱：</label>
+				<input class="ui-input" name="email" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>手机号：</label>
+				<input class="ui-input" name="phone" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>身份证号：</label>
+				<input class="ui-input" name="id_card" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>银行卡：</label>
+				<input class="ui-input" name="bank_card" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label">
+					<em class="ui-form-required">*</em>日期：</label>
+				<input class="ui-input" name="date" type="text">
+			</div>
+
+			<div class="ui-form-item">
+				<label class="ui-label"></label>
+				<span class="ui-button ui-button-ok">
+					<input class="ui-button-text" type="submit" value="确 定" id="sb">
+				</span>
+			</div>
+		</fieldset>
+	</form>
+	<script src="/guifang/js/jq.js"></script>
+	<script src="../js/ui/su_validation.js"></script>
+	<script>
+
+
+			/*表单验证*/
+			$("#validForm").validate({
+				
+				errorElement: "em",
+
+				rules: { //规则
+
+					select: { //下拉必选
+
+						select: true
+					},
+					
+					miUser:{
+					
+						rangelength: [6, 60],
+						required: true
+						
+					}
+					
+
+				},
+
+				message: { //信息反馈
+
+					select: {
+
+						select: true
+					},
+				
+			miUser: {
+				rangelength: '<span class="warning1">6到20个字符</span>',
+				required: '<span class="warning3">请输入用户名,6到20个字符</span>'
+			}
+
+				}
+			})
+
+			/*验证方法扩展*/
+
+			/*下拉必选*/
+			jQuery.validator.addMethod("select", function(value, element) {
+
+				if (value != '') {
+
+					return true
+				}
+			}, '<span class="warning1">请至少选择一项</span>');
+
+			/*身份证*/
+			jQuery.validator.addMethod("id_card", function(value, element) {
+
+				return this.optional(element) || (/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/.test(value) || /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value))
+
+			}, '<span class="warning1">身份证号码无效</span>');
+
+			/*银行卡*/
+			jQuery.validator.addMethod("bank_card", function(value, element) {
+
+				var _val = value.split('-').join('');
+
+				if (/^\d{19}$/g.test(sb)) {
+
+					return true
+				}
+			}, '<span class="warning1">银行卡输入格式错误</span>');
+
+			/*中国移动段手机号*/
+			jQuery.validator.addMethod("phone", function(value, element) {
+				
+				var _re = /^1(3[4-9]|5[012789]|8[78])\d{8}$/;
+				
+				return this.optional(element) || (_re.test(value));
+				
+			}, '<span class="warning1">手机号输入有误</span>');
+			
+			$('#sb').click(function() {
+
+		if ($("#validForm").valid()) {
+			// $("#validForm").submit();
+			return false
+		}
+		
+	})
+
+
+	</script>
+</body>
+
+</html>
